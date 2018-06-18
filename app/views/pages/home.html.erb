@@ -1,14 +1,19 @@
-<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.unsplash.com/photo-1500995617113-cf789362a3e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63cce1cefae4f19979bb3b0e51edf13d&auto=format&fit=crop&w=1350&q=80');">
+<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.pexels.com/photos/6459/sand-summer-outside-playing.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
   <div class="banner-content">
+    <h4>Welcome to </h4>
     <h1>PLAYFINDER</h1>
-    <p>Find your kid's next adventure</p>
-    <%= form_tag '/search', method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control home-form",
-        placeholder: "where?"
-      %>
-    <% end %>
+    <p>Discover your kid's next adventure</p>
+      <%= form_tag '/search', method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control home-form",
+            placeholder: "where?" %>
+      <% end %>
+    <a href="#" class="recommended">
+      <div class="text-center">
+        <div class="arrow"><%= image_tag "arrow.png" %></div>
+      </div>
+    </a>
   </div>
 </div>
 

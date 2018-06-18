@@ -2,10 +2,6 @@ class PlacesController < ApplicationController
 
   def index
 
-  end
-
-  def show
-
     if params[:query].present?
       @places = Place.full_search(params[:query])
     else
