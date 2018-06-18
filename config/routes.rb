@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :places do
     resources :events
   end
+
+  get '/search', to: 'pages#search'
 end
