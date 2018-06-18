@@ -1,0 +1,35 @@
+<div class="main-container">
+  <div class="cards-container">
+    <%= form_tag places_path, method: :get, :id => "search_form" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for activity"
+      %>
+      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search button',:name => nil%>
+
+    <% end %>
+    <div class="row card-row">
+      <% @places.each do |place| %>
+
+        <%= link_to place_path(place) do %>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="card-wrapper">
+            <div class="card" >
+            </div>
+            <div class="card-description">
+              <h2><%= place.title %></h2>
+              <%= place.category %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div id="map" 
+  style="width: 100%;
+  height: 900px;"
+  data-markers="<%= @markers.to_json %>">
+  </div>
+</div>
