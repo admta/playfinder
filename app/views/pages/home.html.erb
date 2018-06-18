@@ -1,2 +1,70 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.unsplash.com/photo-1500995617113-cf789362a3e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63cce1cefae4f19979bb3b0e51edf13d&auto=format&fit=crop&w=1350&q=80');">
+  <div class="banner-content">
+    <h1>PLAYFINDER</h1>
+    <p>Find your kid's next adventure</p>
+    <%= form_tag '/search', method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control home-form",
+        placeholder: "where?"
+      %>
+    <% end %>
+  </div>
+</div>
+
+<!-- <div class="wrapper"> -->
+
+<div id="about" class="container page-container">
+
+
+
+  <div class="row three-steps-main">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="first-step column">
+        <i class="fas fa-search"></i>
+        <h3>Search</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="second-step column">
+        <!-- <img class="icon" height="42" width="42" src="https://cdn3.iconfinder.com/data/icons/transportation-13/512/aircraft-512.png" /> -->
+        <i class="fas fa-plane"></i>
+        <h3>Book a plane</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="third-step column">
+        <!-- <img class="icon" height="42" width="42" src="https://www.biddwell.com/static/landing-img/two-point-zero/landlord/Landlord-Icon-NegoitateOnRate.png" /> -->
+        <i class="fas fa-wallet"></i>
+        <h3>Become a PlaneLord</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<div class="card-container">
+    <h3>Events coming</h3>
+  <div class="row card-row">
+    <% @events.each do |event| %>
+
+        <div class="col-sm-4">
+          <div class="card-wrapper">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event.photo %>');">
+            </div>
+              <div class="card-description">
+                <h2><%= event.title %></h2>
+
+              </div>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+</div>

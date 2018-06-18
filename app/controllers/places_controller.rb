@@ -1,6 +1,11 @@
 class PlacesController < ApplicationController
 
   def index
+
+  end
+
+  def show
+
     if params[:query].present?
       @places = Place.full_search(params[:query])
     else
@@ -26,5 +31,6 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(:category, :title, :address, :indoor, :default_age)
+
   end
 end

@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
 
   def index
+
+  end
+
+  def show
+
     if params[:query].present?
       @events = Event.full_search(params[:query])
     else
@@ -26,6 +31,7 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :start_time, :start_date, :end_time)
+
   end
 end
 
