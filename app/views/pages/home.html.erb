@@ -1,2 +1,75 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.pexels.com/photos/6459/sand-summer-outside-playing.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+  <div class="banner-content">
+    <h4>Welcome to </h4>
+    <h1>PLAYFINDER</h1>
+    <p>Discover your kid's next adventure</p>
+      <%= form_tag '/search', method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control home-form",
+            placeholder: "where?" %>
+      <% end %>
+    <a href="#" class="recommended">
+      <div class="text-center">
+        <div class="arrow"><%= image_tag "arrow.png" %></div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- <div class="wrapper"> -->
+
+<div id="about" class="container page-container">
+
+
+
+  <div class="row three-steps-main">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="first-step column">
+        <i class="fas fa-search"></i>
+        <h3>Search</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="second-step column">
+        <!-- <img class="icon" height="42" width="42" src="https://cdn3.iconfinder.com/data/icons/transportation-13/512/aircraft-512.png" /> -->
+        <i class="fas fa-plane"></i>
+        <h3>Book a plane</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div class="third-step column">
+        <!-- <img class="icon" height="42" width="42" src="https://www.biddwell.com/static/landing-img/two-point-zero/landlord/Landlord-Icon-NegoitateOnRate.png" /> -->
+        <i class="fas fa-wallet"></i>
+        <h3>Become a PlaneLord</h3>
+        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+<div class="card-container">
+    <h3>Events coming</h3>
+  <div class="row card-row">
+    <% @events.each do |event| %>
+
+        <div class="col-sm-4">
+          <div class="card-wrapper">
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event.photo %>');">
+            </div>
+              <div class="card-description">
+                <h2><%= event.title %></h2>
+
+              </div>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+</div>
+</div>
