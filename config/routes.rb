@@ -6,11 +6,8 @@ Rails.application.routes.draw do
   resources :places do
     resources :events
   end
-<<<<<<< HEAD
-  get '/search', to: 'pages#search'
-end
-=======
 
+  get '/search', to: 'pages#search'
   resources :events
 end
->>>>>>> master
+

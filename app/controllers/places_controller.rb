@@ -1,14 +1,7 @@
 class PlacesController < ApplicationController
 
   def index
-<<<<<<< HEAD
-  end
 
-  def show
-    @places = Place.all
-  end
-
-=======
     if params[:query].present?
       @places = Place.full_search(params[:query])
     else
@@ -36,5 +29,4 @@ class PlacesController < ApplicationController
     params.require(:place).permit(:category, :title, :address, :indoor, :default_age)
 
   end
->>>>>>> master
 end

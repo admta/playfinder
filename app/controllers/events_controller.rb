@@ -1,11 +1,4 @@
 class EventsController < ApplicationController
-<<<<<<< HEAD
-  def index
-  end
-
-  def show
-    @events = Event.all
-=======
 
   def index
     if params[:query].present?
@@ -33,8 +26,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :description, :start_time, :start_date, :end_time)
-
->>>>>>> master
   end
 end
 
