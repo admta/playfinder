@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :events
+  resources :bucketlists, only: [:new, :create, :show]
+  resources :list_events, only: [:new, :create]
 end
