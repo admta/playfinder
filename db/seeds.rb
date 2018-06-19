@@ -1,5 +1,6 @@
 Event.destroy_all
 Place.destroy_all
+BucketList.destroy_all
 User.destroy_all
 
 users =
