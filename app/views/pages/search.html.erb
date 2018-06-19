@@ -1,10 +1,3 @@
-<div class="responsive">
-<div id="map"
-  style="width: 100%;
-  height: 400px;"
-  data-markers="<%= @markers.to_json %>">
-</div>
-
 <div class="cards-container">
     <%= form_tag places_path, method: :get, :id => "search_form" do %>
       <%= text_field_tag :query,
@@ -14,18 +7,19 @@
       %>
       <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search button',:name => nil%>
     <% end %>
+<div class= container>
 
-<div class="search-list">
-  <% @places.each do |place| %>
-  <div class="row">
-    <%= link_to place_path(place) do %>
+    <% @places.each do |place| %>
+    <div class="search-list">
+    <div class="row">
       <div class="col-xs-12 col-sm-4">
         <div class="place-picture" style="background-image: url(<%= asset_path place.photo %>) ">
        </div>
       </div>
 
-       <div class="col-xs-12 col-sm-8" style="border: 2px solid #113a5d">
-        <div class= place-decpription>
+       <div class="col-xs-12 col-sm-8">
+        <div class="place-description">
+          <%= link_to place_path(place) do %>
          <h2><%= place.title %></h2>
       <% end %>
         <p><%= place.category %></p>
@@ -33,13 +27,18 @@
         </div>
       </div>
      </div>
-  <% end %>
-</div>
+     </div>
+    <% end %>
 
-  <div class="footer">
-    <div class="footer-copyright">
-      Enjoy your day! <i class="fas fa-place"></i>
-    </div>
-  </div>
-</div>
 
+<div class="responsive">
+<div id="map"
+  style="width: 100%;
+  height: 400px;"
+  data-markers="<%= @markers.to_json %>">
+</div>
+</div>
+</div>
+<div>
+<%= link_to "Go back", @place %>
+</div>
