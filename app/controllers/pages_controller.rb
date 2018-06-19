@@ -7,6 +7,8 @@ class PagesController < ApplicationController
   end
 
   def search
+    @places = Place.all
+    @events = Event.all
   end
 
 end
