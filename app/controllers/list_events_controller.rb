@@ -12,4 +12,13 @@ class ListEventsController < ApplicationController
     @event_list = ListEvent.create(bucket_list: @bucketlist, event: @event)
     redirect_to bucketlist_path(@bucketlist)
   end
+
+  def destroy
+    @bucketlist = current_user.bucket_list
+    @user = current_user
+    @event_list = ListEvent.find(params[:id])
+    @event_list.destroy
+    redirect_to bucketlist_path(@bucketlist)
+
+  end
 end

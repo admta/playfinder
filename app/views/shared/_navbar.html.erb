@@ -9,8 +9,11 @@
 
     <% if user_signed_in? %>
 
+        <% @bucketlist = current_user.bucket_list %>
+        <% @user = current_user %>
+
       <!-- Links when logged in -->
-      <%= link_to "BucketList", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "BucketList", bucketlist_path(@bucketlist), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Places", places_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>

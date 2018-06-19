@@ -10,6 +10,10 @@
 </div>
 </div>
 <div>
+  <%= simple_form_for (@list_place) do |f| %>
+  <%= f.hidden_field :list_place, :value => @place.id  %>
+  <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
+  <% end %>
 <%= link_to "Go back", @place %>
 
 </div>
