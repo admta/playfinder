@@ -1,0 +1,18 @@
+<h1>HELLO WORLD</h1>
+
+
+  <div class="description">
+    <% @places.each do |place| %>
+      <p><%= place.category %></p>
+      <p>$<%= place.title %></p>
+      <p><%= place.address %></p>
+      <p><%= place.min_age %></p>
+      <p><%= place.max_age %></p>
+      <% end %>
+  </div>
+
+  <div class="footer">
+    <div class="footer-copyright">
+      Enjoy your day! <i class="fas fa-place"></i>
+    </div>
+  </div>
