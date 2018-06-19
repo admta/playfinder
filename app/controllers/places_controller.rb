@@ -11,13 +11,14 @@ class PlacesController < ApplicationController
       {
         lat: place.latitude,
         lng: place.longitude,
-        #infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place }) }
+        # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place }) }
       }
     end
   end
 
   def show
     @place = Place.find(params[:id])
+    @list_place = ListPlace.new
   end
 
   private

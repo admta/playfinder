@@ -9,5 +9,9 @@ Rails.application.routes.draw do
 
   get '/search', to: 'pages#search'
   resources :events
+  resources :bucketlists, only: [:new, :create, :show]
+  resources :list_events, only: [:new, :create, :destroy]
+  resources :list_places, only: [:new, :create, :destroy]
+
 end
 

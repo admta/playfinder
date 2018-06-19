@@ -5,11 +5,12 @@ class Place < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
- 
+
 
   pg_search_scope :full_search,
-  against: [ :title, :category, :address, :start_date, :default_age],
+  against: [ :title, :category, :address],
   using: {
-      tsearch: { prefix: true } 
+      tsearch: { prefix: true }
     }
+  multisearchable against: [ :title, :category, :address]
 end
