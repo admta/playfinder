@@ -1,11 +1,6 @@
 class EventsController < ApplicationController
 
   def index
-
-  end
-
-  def show
-
     if params[:query].present?
       @events = Event.full_search(params[:query])
     else
