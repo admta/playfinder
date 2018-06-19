@@ -13,7 +13,7 @@
         <% @user = current_user %>
 
       <!-- Links when logged in -->
-      <%= link_to "BucketList", bucketlist_path(@bucketlist), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "BucketList", bucketlist_path(current_user.bucket_list), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Places", places_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Home", root_path, class: "navbar-wagon-item navbar-wagon-link" %>
