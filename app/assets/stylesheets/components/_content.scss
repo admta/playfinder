@@ -8,8 +8,44 @@
 // }
 
 
-.arrow img {
-    width: 40px;
-    margin-top: 50px;
+.arrow {
+  position: absolute;
+  bottom: 0;
 }
 
+.arrow img {
+  width: 40px;
+  margin-bottom: 20px;
+
+}
+
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.scroll-center {
+  position: absolute;
+  bottom: 0;
+}
+
+.floating {
+  animation-name: floating;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  // transform: rotate(-45deg);
+}
+
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
+.container {
+  margin-top: 100px;
+}
