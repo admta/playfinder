@@ -6,7 +6,7 @@
 </div>
 
 <div class="cards-container">
-    <%= form_tag places_path, method: :get, :id => "search_form" do %>
+    <%= form_tag search_path, method: :get, :id => "search_form" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
@@ -34,12 +34,24 @@
       </div>
      </div>
   <% end %>
-</div>
 
-  <div class="footer">
-    <div class="footer-copyright">
-      Enjoy your day! <i class="fas fa-place"></i>
-    </div>
-  </div>
+  <% @events.each do |event| %>
+  <div class="row">
+    <%= link_to event_path(event) do %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="place-picture" style="background-image: url(<%= asset_path event.photo %>) ">
+       </div>
+      </div>
+
+       <div class="col-xs-12 col-sm-8" style="border: 2px solid #113a5d">
+        <div class= place-decpription>
+         <h2><%= event.title %></h2>
+      <% end %>
+        <p><%= event.description %></p>
+        <p><%= event.start_date %></p>
+        </div>
+      </div>
+     </div>
+  <% end %>
 </div>
 

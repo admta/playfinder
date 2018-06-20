@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
   def index
+
     if params[:query].present?
       @events = Event.full_search(params[:query])
     else
@@ -10,7 +11,7 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { place: place }) }
+        # infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { place: place }) }
       }
     end
   end
@@ -30,4 +31,4 @@ class EventsController < ApplicationController
   end
 end
 
-
+# address = event.place.address

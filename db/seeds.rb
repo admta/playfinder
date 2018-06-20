@@ -1,5 +1,8 @@
+ListEvent.destroy_all
+ListPlace.destroy_all
 Event.destroy_all
 Place.destroy_all
+BucketList.destroy_all
 User.destroy_all
 
 users =
@@ -85,6 +88,8 @@ events = [
     end_time: nil,
     start_date:  '2018-06-18',
     place: Place.first,
+    latitude: Place.first.latitude,
+    longitude: Place.first.longitude,
     photo: 'https://images.fatherly.com/wp-content/uploads/2017/07/babies-crawling-in-diapers.jpg?q=65&w=600'
   }
 ]

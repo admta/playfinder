@@ -4,8 +4,8 @@ class Event < ApplicationRecord
   include PgSearch
 
 
-  geocoded_by :address
-  after_validation :geocode, if: :will_save_change_to_address?
+  # geocoded_by :address
+  # after_validation :geocode, if: :will_save_change_to_address?
 
 
   pg_search_scope :full_search,
@@ -14,7 +14,7 @@ class Event < ApplicationRecord
         tsearch: { prefix: true }
       }
 
-  multisearchable against: [ :title, :description, :start_date]
+  # multisearchable against: [ :title, :description, :start_date]
 end
 
   # t.string "title"
