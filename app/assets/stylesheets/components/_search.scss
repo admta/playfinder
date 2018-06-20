@@ -1,6 +1,6 @@
 .search-list{
-  display: flex;
-  flex-direction: column;
+  margin-top: 20px;
+  box-shadow: 5px 5px #113a5d;
 }
 
 form#search_form {
@@ -16,15 +16,12 @@ a{
   color: #113a5d;
 }
 
-// .col-xs-12{
-//   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-// }
-
 .place-picture{
   background-size: cover;
-  height: 150px;
+  height: 175px;
 }
 
-.place-decpription{
-  height: 150px;
+#map{
+  margin-top: 20px;
+  box-shadow: 5px 5px #113a5d;
 }
