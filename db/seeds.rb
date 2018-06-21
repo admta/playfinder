@@ -43,26 +43,103 @@ end
 
 places =
 [
+
+  {
+    category: 'Playground with Cafés',
+    title: 'Robbeburg International Playgroup',
+    address: 'Jekerstraat 84, 1078 MG Amsterdam',
+    description: 'This is non-profit playgroup run by volunteers. It is a friendly place to escape to with your little one and meet up with other international parents.',
+    indoor: true,
+    min_age: 0,
+    max_age: 4,
+    link:  "http://robbeburg.com",
+    photo: 'http://robbeburg.com/wp-content/uploads/2012/04/houses.jpg'
+
+  },
+  {
+    category: 'Playground with Cafés',
+    title: ' Octopus International Playgroup',
+    address: 'Arent Janszoon Ernststraat 132, 1082 LP Amsterdam',
+    description: 'Just opposite the Gelderlandplein shopping centre in Buitenvelder, this is again a parent-run playgroup for international parents. The beautiful Amstel Park is a walking distance from the playgroup if you choose to plan a whole day out.',
+    indoor: true,
+    min_age: 0,
+    max_age: 4,
+    link: "https://www.facebook.com/groups/Octopusplaygroup/?fref=ts",
+    photo: 'http://robbeburg.com/wp-content/uploads/2012/04/houses.jpg'
+
+  },
+
   {
     category: 'Zoo',
     title: 'Natura Artis Magistra',
     address: 'Plantage Kerklaan 38-40, 1018 CZ Amsterdam',
     indoor: false,
-    min_age: 0,
+    min_age: 2,
     max_age: 100,
     photo: 'https://thumbs.dreamstime.com/b/artis-zoo-amsterdam-27371162.jpg'
 
   },
 
   {
-    category: 'Parks',
+    category: 'Park',
     title: 'Vondelpark',
     address: '1071 AA Amsterdam',
+    description: 'The park to end all parks! This place is just awesome, for children of all ages (and adults too). Beautiful parkland, wonderful wooden play equipment, rope bridges, zip wires, an open-air theatre, huge paddling pool, skate hire, a Picasso sculpture and a cracking café, too. Grab coffee and pancakes from the Groot Melkhuis, kick off your shoes and let your kids run wild. ',
     indoor: false,
-    min_age: nil,
-    max_age: nil,
-    photo: "https://cdn.babyccinokids.com/wp-content/uploads/2016/07/Vondelpark-paddle-pool.jpg"
+    min_age: 5,
+    max_age: 18,
+    link: "http://www.hetvondelpark.net",
+    photo: 'https://cdn.babyccinokids.com/wp-content/uploads/2016/07/Vondelpark-paddle-pool.jpg'
+  },
+
+  {
+    category: 'Park',
+    title: 'Vereniging Kippen',
+    address: 'Madelievenstraat 2d, 1015 NV Amsterdam ',
+    description: 'Also known as the Chicken and Rabbit Playground, this children’s play area in the Jordaan district (not far from Anne Frank’s House) is a bit of a locals’ secret. Small, but quieter than the touristy parks, this bijou playspace has chickens, rabbits, an array of ride-on toys, a sandpit and even a table-tennis table (take your own bat and balls). You might be lucky enough to get yourself some fresh eggs too.',
+    indoor: false,
+    min_age: 8,
+    max_age: 18,
+    link:  "http://www.konippen.nl",
+    photo: "http://www.konippen.nl/img/3luik.JPG"
+  },
+
+  {
+    category: 'Park',
+    title: 'Amstelpark',
+    address: 'Arent Jan Ernststraat 1, Amsterdam',
+    description: 'A little further away, on the outskirts of the city, this beautiful park offers everything from bumper cars to a petting zoo (just don’t get those two mixed up!). The playground is enormous, the gardens are beautiful, there are two galleries for the culturally-minded and a fantastic hedge labyrinth to lose your children in. Kids can get a train ride through the park, offering a glimpse of a restored windmill, or a pony ride at the petting zoo.',
+    indoor: false,
+    min_age: 0,
+    max_age: 100,
+    link: "http://www.amstelpark.info",
+    photo: "http://www.amstelpark.info/amsterdam/wp-content/uploads/Amstelpark_0004_IMG_9947.jpg"
+  },
+
+  {
+    category: 'Park',
+    title: 'Speeltuin Amstelpark',
+    address: 'Arent Jan Ernststraat 1, Amsterdam',
+    description: 'Fun every day! The playground in the Amstelpark is open 365 days a year. It is the perfect location for a casual children’s or family celebration. There are easy picnic benches, but you can also sit on the lawn. Finish your visit with a walk through the beautiful Amstelpark.Free admission!',
+    indoor: false,
+    min_age: 5,
+    max_age: 12,
+    link: "http://www.speeltuin-amstelpark.nl",
+    photo: "https://www.speeltuin-amstelpark.nl/wp-content/uploads/Speeltuin-Amstelpark_8_00_Speeltuin.jpg"
+  },
+
+  {
+    category: 'Park',
+    title: 'Rembrandtpark',
+    address: 'Postjesweg, 1058 EP Amsterdam, Amsterdam',
+    description: 'Rembrandtpark, a lovely quiet spot in West Amsterdam, offers both a wonderful little playground and the oldest petting zoo (‘kinderboerderij’) in the city, De Uylenburg. A highlight of the playground is a wonderful fire engine play area, while the large petting zoo will allow you to mingle with peacocks, pigs, chickens, horses, ducks and other animal friends.',
+    indoor: false,
+    min_age: 8,
+    max_age: 18,
+    link: "http://www.rembrandtpark.org",
+    photo: "http://www.cotesaintluc.org/files/u1/parks_and_recreation/images/Rembrandt%20mosaic.jpg"
   }
+
 ]
 
 # add migration for min age and max age
@@ -70,7 +147,6 @@ places =
 places.each do |place|
   Place.create!(place)
 end
-
 
 
 # events = []
@@ -143,10 +219,10 @@ def scrape_iamsterdam(date)
 
 
       event.photo = data_doc.search('.slider-image').to_a.first.to_s.match(/url\('(.*)'\)/)[1]
-      event.title = data_doc.search('h1').text
-      event.description = data_doc.search('a.location-info__highlight').text
+      event.title = data_doc.search('h1','a.location-info__highlight').text
+      event.description = data_doc.search('page-introduction__text').text
       info = data_doc.search('span.location-info__text', 'span.location-info__align-icon')
-      link_address = data_doc.search('.btn.btn-block.btn-outlined-green').map {|a| a.attribute('href').to_s}.first
+      event.link = data_doc.search('.btn.btn-block.btn-outlined-green').map {|a| a.attribute('href').to_s}.first
 
 
       event.address = data_doc.search('span.location-info__text').map(&:text).join(" ")
