@@ -13,51 +13,49 @@
 </div>
 
 <!-- <div class="wrapper"> -->
+  <div class="yellow-wrapper">
+    <div id="about" class="container">
+      <div class="row three-steps-main">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="center-content">
+            <div class="steps column">
+              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
+                  <!-- <h3>SEARCH</h3> -->
+                  <div class="front-description">
+                    <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+                  </div>
+                  <%= link_to "Search now", search_path , class: "btn-description" %>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="center-content">
+            <div class="steps column">
+              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
 
-<div id="about" class="container page-container">
+                  <div class="front-description">
+                    <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+                  </div>
+                  <%= link_to "Discover", search_path , class: "btn-description" %>
 
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <div class="center-content">
+            <div class="steps column">
+              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
 
-
-  <div class="row three-steps-main">
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="center-content">
-        <div class="steps column">
-          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
-              <!-- <h3>SEARCH</h3> -->
-              <p>Playfinder was design to make your life easier. Just search through our page to find amazing<br>adventures right in your neighborhood</p>
-              <%= link_to "Search now", search_path , class: "btn-medium" %>
+                <div class="front-description">
+                  <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+                </div>
+                <%= link_to "Share now", search_path , class: "btn-description" %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="center-content">
-        <div class="steps column">
-          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
-
-
-            <!-- <h3>BUCKETLIST</h3> -->
-              <p>Save your favorite locations into your own personalized list. Don't miss out any of your upcoming<br>events, get a remind in your calender.</p>
-              <%= link_to "Search now", search_path , class: "btn-medium" %>
-
-        </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="center-content">
-        <div class="steps column">
-          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
-
-
-            <!-- <h3>SHARE</h3> -->
-            <p>Share the location of any place or event you are attending to with your friends.</p><br>W </p>
-            <%= link_to "Search now", search_path , class: "btn-medium" %>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
 
 
 <div class="card-container">
@@ -80,3 +78,27 @@
   </div>
 </div>
 </div>
+
+<!-- <div class='wrapper-card' id="inspiration-card">
+  <div class="container container-card">
+    <div class="cards cards-home">
+      <p class="title-home text-center"><span>happening now</span></p>
+      <div class='event-card'>
+        <% @events.each do |event| %>
+          <%= link_to event_path(event), class: "card-link" %>
+            <div class="img-card" style="background-image: url('<%= event.photo %>');"></div>
+              <div class="info">
+                <div class="event-name">
+                  <h3><%= event.title %></h3>
+                </div>
+                  <div class="detail-info">
+                    <p class="place"> <%= event.place.address %> </p>
+                  </div>
+                    <p class="desc"><%= event.description %></p>
+              </div>
+
+        <% end %>
+      </div>
+      </div>
+    </div>
+  </div> -->
