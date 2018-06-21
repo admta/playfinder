@@ -11,7 +11,9 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        # infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { place: place }) }
+        infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { event: event}) }
+
+
       }
     end
   end
@@ -22,6 +24,7 @@ class EventsController < ApplicationController
   end
 
   private
+
   def set_events
     @event = Event.find(params[:event_id])
   end
@@ -31,4 +34,6 @@ class EventsController < ApplicationController
   end
 end
 
+
 # address = event.place.address
+

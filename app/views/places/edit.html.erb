@@ -1,0 +1,28 @@
+<%#= render "form" %>
+      <%= simple_form_for @place do |f| %>
+        <%= f.input :title %>
+        <%= f.input :category %>
+        <%= f.input :address %>
+        <%= f.input :min_age %>
+        <%= f.input :max_age %>
+        <%= f.input :indoor, as: :select %>
+        <%= f.input :photo %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+
+
+
+   <!--    create_table "places", force: :cascade do |t|
+        t.string "category"
+        t.string "title"
+        t.text "address"
+        t.boolean "indoor"
+        t.datetime "created_at", null: false
+        t.datetime "updated_at", null: false
+        t.string "photo"
+        t.integer "min_age"
+        t.integer "max_age"
+        t.float "latitude"
+        t.float "longitude"
+      end
+ -->
