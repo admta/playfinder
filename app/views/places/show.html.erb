@@ -1,18 +1,18 @@
-<div class="responsive">
-<div class="container_picture">
-<div class="banner" <%= @place.title %> ></div>
+<div <%= @place.title %> ></div>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
 <div class="description">
     <h1><%= @place.title %></h1>
-    <p><%= @place.category %></p>
-    <p><%= @place.address %></p>
-</div>
+    <p>Category: <%= @place.category %></p>
+    <p>Address: <%= @place.address.split(",").second%> <%= @place.address.split(",").third%> <%= @place.address.split(",").fourth%> <%= @place.address.split(",").fifth%>
+    <p>Age range: <%= @place.min_age %> to <%= @place.max_age %></p>
 </div>
 </div>
 </div>
 <div>
+
   <%= simple_form_for (@list_place) do |f| %>
   <%= f.hidden_field :list_place, :value => @place.id  %>
   <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
   <% end %>
-<%= link_to "Go back", @place %>
+<%= link_to "Go back", places_path%>
 </div>
