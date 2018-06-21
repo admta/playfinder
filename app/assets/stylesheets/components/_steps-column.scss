@@ -14,18 +14,24 @@
 //   padding: 50px;
 // }
 
+
+.yellow-wrapper {
+  background-color: #FDFAE5;
+}
+
 .steps {
-  width: 250px;
-  height:350px;
+  width: 270px;
+  height:370px;
 
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px -25px;
   border: none;
-  background-color: #113a5d;
+  background-color: #BF4342;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   color: #f9f9f9;
   text-align: center;
   padding: 30px;
+  margin: 20px;
 }
 
 .steps:hover {
@@ -33,9 +39,16 @@
   box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 50px -20px;
 }
 
-// .card h1 {
-//   text-align: center;
-//   -webkit-font-smoothing: antialiased;
-// }
+.front-description {
+  padding: 10px;
+  margin: 10px;
+
+  // border: 5px solid red;
+}
+
+#about {
+  margin-top: 0px;
+  padding: 50px;
+}
 
 

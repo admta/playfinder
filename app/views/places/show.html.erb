@@ -1,3 +1,4 @@
+
 <div class = container>
   <div <%= @place.title %> ></div>
   <div class="card margin-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @place.photo %>');">
@@ -6,6 +7,7 @@
       <p>Category: <%= @place.category %></p>
       <p>Address: <%= @place.address.split(",").second%> <%= @place.address.split(",").third%> <%= @place.address.split(",").fourth%> <%= @place.address.split(",").fifth%>
         <p>Age range: <%= @place.min_age %> to <%= @place.max_age %></p>
+    <p><%= link_to "Check their website for more info", @place.link, :target => "_blank" %></p>
       </div>
     </div>
   </div>
@@ -27,4 +29,4 @@
   </div>
 </div>
 </div>
-</div>
+
