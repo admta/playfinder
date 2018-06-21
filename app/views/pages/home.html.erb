@@ -1,15 +1,15 @@
-<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.unsplash.com/photo-1500995617113-cf789362a3e1?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63cce1cefae4f19979bb3b0e51edf13d&auto=format&fit=crop&w=1350&q=80');">
+<div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.pexels.com/photos/6459/sand-summer-outside-playing.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
   <div class="banner-content">
+    <h4>Welcome to </h4>
     <h1>PLAYFINDER</h1>
-    <p>Find your kid's next adventure</p>
-    <%= form_tag '/search', method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control home-form",
-        placeholder: "where?"
-      %>
-    <% end %>
+    <p>Discover your kid's next adventure</p>
+
+    <%= link_to "Search now", search_path , class: "btn-medium" %>
+
   </div>
+      <a class="floating scroll-center" href="#about">
+        <div class="arrow"><%= image_tag "arrow.png" %></div>
+      </a>
 </div>
 
 <!-- <div class="wrapper"> -->
@@ -20,28 +20,40 @@
 
   <div class="row three-steps-main">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="first-step column">
-        <i class="fas fa-search"></i>
-        <h3>Search</h3>
-        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
-
+      <div class="center-content">
+        <div class="steps column">
+          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
+              <!-- <h3>SEARCH</h3> -->
+              <p>Playfinder was design to make your life easier. Just search through our page to find amazing<br>adventures right in your neighborhood</p>
+              <%= link_to "Search now", search_path , class: "btn-medium" %>
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="second-step column">
-        <!-- <img class="icon" height="42" width="42" src="https://cdn3.iconfinder.com/data/icons/transportation-13/512/aircraft-512.png" /> -->
-        <i class="fas fa-plane"></i>
-        <h3>Book a plane</h3>
-        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+      <div class="center-content">
+        <div class="steps column">
+          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
+
+
+            <!-- <h3>BUCKETLIST</h3> -->
+              <p>Save your favorite locations into your own personalized list. Don't miss out any of your upcoming<br>events, get a remind in your calender.</p>
+              <%= link_to "Search now", search_path , class: "btn-medium" %>
+
+        </div>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="third-step column">
-        <!-- <img class="icon" height="42" width="42" src="https://www.biddwell.com/static/landing-img/two-point-zero/landlord/Landlord-Icon-NegoitateOnRate.png" /> -->
-        <i class="fas fa-wallet"></i>
-        <h3>Become a PlaneLord</h3>
-        <p>Just pick the one suits your needs, and our system will take care of everything you need.<br>We do our best to keep it simple!</p>
+      <div class="center-content">
+        <div class="steps column">
+          <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
 
+
+            <!-- <h3>SHARE</h3> -->
+            <p>Share the location of any place or event you are attending to with your friends.</p><br>W </p>
+            <%= link_to "Search now", search_path , class: "btn-medium" %>
+
+
+        </div>
       </div>
     </div>
   </div>

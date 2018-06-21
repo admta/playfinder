@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Your Events</h1>
+
+<% @events.each do |event| %>
+<%= event.event.title %>
+<%= event.event.start_date %>
+<%= link_to list_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
+          <i class="fa fa-trash"></i>
+<% end %>
+<% end %>
+
+
+<h1>Your Places</h1>
+
+<% @places.each do |place| %>
+<%= place.place.category %>
+<%= place.place.title %>
+<%= place.place.address %>
+<%= link_to list_place_path(place), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash"></i>
+<% end %>
+<% end %>
+</div>
+

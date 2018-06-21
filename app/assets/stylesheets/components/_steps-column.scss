@@ -1,0 +1,41 @@
+// .first-step {
+//   background-color: #c4ffdd;
+//   padding: 50px;
+// }
+
+// .second-step {
+//   background-color: #c4ffdd;
+//   padding: 50px;
+// }
+
+
+// .third-step {
+//   background-color: #c4ffdd;
+//   padding: 50px;
+// }
+
+.steps {
+  width: 250px;
+  height:350px;
+
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px -25px;
+  border: none;
+  background-color: #113a5d;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  color: #f9f9f9;
+  text-align: center;
+  padding: 30px;
+}
+
+.steps:hover {
+  transform: scale3d(1.07, 1.07, 1.07);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 50px -20px;
+}
+
+// .card h1 {
+//   text-align: center;
+//   -webkit-font-smoothing: antialiased;
+// }
+
+

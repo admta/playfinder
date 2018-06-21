@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(version: 2018_06_20_213402) do
     t.index ["place_id"], name: "index_list_places_on_place_id"
   end
 
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text "content"
+    t.string "searchable_type"
+    t.bigint "searchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
   create_table "places", force: :cascade do |t|
     t.string "category"
     t.string "title"
@@ -89,6 +98,7 @@ ActiveRecord::Schema.define(version: 2018_06_20_213402) do
     t.datetime "updated_at", null: false
     t.string "first_name"
     t.string "last_name"
+    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

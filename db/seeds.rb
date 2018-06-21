@@ -1,5 +1,8 @@
+ListEvent.destroy_all
+ListPlace.destroy_all
 Event.destroy_all
 Place.destroy_all
+BucketList.destroy_all
 User.destroy_all
 
 users =
@@ -119,6 +122,7 @@ def scrape_iamsterdam(date)
       event = Event.new
       data = open(agenda_link).read
       data_doc = Nokogiri::HTML(data)
+
 
       title = data_doc.search('a.location-info__highlight').text
 

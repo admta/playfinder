@@ -1,6 +1,7 @@
 .banner {
   color: white;
   text-align: center;
+  // height: calc(100vh - 70px);
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
@@ -8,24 +9,30 @@
   align-items: center;
   justify-content: center;
   background-attachment: fixed;
+  position: relative;
+
 }
 .banner h1 {
   font-family: 'Shadows Into Light', cursive;
-  font-size: 50px;
+  font-size: 70px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  // text-decoration: underline;
+  // text-decoration-style: solid;
+  // text-decoration-color: #c4ffdd;
+  color: #f9f9f9;
 }
 .banner p {
   font-family: 'Roboto', sans-serif;
   font-size: 25px;
   font-weight: lighter;
-  color: rgb(255, 255, 255);
+  color: #f9f9f9;
   opacity: 0.6;
   margin-bottom: 30px;
 }
 
-.banner-home {
-  height: 70vh;
+// .banner-home {
+//   height: 70vh;
 
-}
+// }
 
