@@ -1,23 +1,30 @@
-<div <%= @event.title %> ></div>
+<div></div>
+
 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @event.photo %>');">
-<div class="description">
-    <h1><%= @event.title %></h1>
+  <div></div>
+  <div class="description">
+    <div></div>
+    <p></p>
+    <h1>Title: <%= @event.title %></h1>
 
+    <p>Address:<%= @event.address.split(",").third%><%= @event.address.split(",").fourth%><%= @event.address.split(",").last%></p>
+    <p><%= @event.start_date.strftime("From %d-%m-%Y") %><%= @event.end_date.strftime(" until %d-%m-%Y") %></p>
+    <p><%= @event.price.split(",").first%> <%= @event.description %>
+    </p>
+    <p><%= link_to "Check their website for more info", @event.link, :target => "_blank" %></p>
 
-<p>Address:<%= @event.address.split(",").third%><%= @event.address.split(",").fourth%><%= @event.address.split(",").last%></p>
-<p>From <%= @event.start_date %> until <%= @event.end_date %></p>
-<p><%= @event.price.split(",").first%> <%= @event.description %>
-</p>
-
+  </div>
+  <br>
 </div>
-</div>
-<%= simple_form_for (@list_event) do |f| %>
-  <%= f.hidden_field :list_event, :value => @event.id  %>
-  <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
-  <% end %>
 
 </div>
 <div>
+  <%= link_to "Go back", events_path%>
+</div>
 
-<%= link_to "Go back", events_path%>
+<div class="events-show-form">
+  <%= simple_form_for @list_event do |f| %>
+  <%= f.hidden_field :list_event, :value => @event.id  %>
+  <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
+  <% end %>
 </div>
