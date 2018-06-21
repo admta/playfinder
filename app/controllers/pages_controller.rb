@@ -25,7 +25,7 @@ class PagesController < ApplicationController
     end
 
 
-     @events.where.not(latitude: nil, longitude: nil).each do |event|4
+     @events.where.not(latitude: nil, longitude: nil).each do |event|
       @markers << { lat: event.latitude, lng: event.longitude }
     end
   end
