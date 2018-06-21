@@ -1,13 +1,14 @@
-<div class="responsive">
-<div class="container_picture">
-<div class="banner" <%= @event.title %> ></div>
+<div <%= @event.title %> ></div>
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= @event.photo %>');">
 <div class="description">
     <h1><%= @event.title %></h1>
-    <p><%= @event.start_date %></p>
-    <p><%= @event.start_time %></p>
-    <p><%= @event.start_time %></p>
-</div>
-</div>
+
+
+<p>Address:<%= @event.address.split(",").third%><%= @event.address.split(",").fourth%><%= @event.address.split(",").last%></p>
+<p>From <%= @event.start_date %> until <%= @event.end_date %></p>
+<p><%= @event.price.split(",").first%> <%= @event.description %>
+</p>
+
 </div>
 </div>
 <%= simple_form_for (@list_event) do |f| %>
@@ -15,6 +16,8 @@
   <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
   <% end %>
 
+</div>
 <div>
-<%= link_to "Go back", @event %>
+
+<%= link_to "Go back", events_path%>
 </div>
