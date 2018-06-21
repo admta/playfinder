@@ -7,11 +7,9 @@
         placeholder: "Search for activity"
       %>
       <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search button',:name => nil%>
-
     <% end %>
     <div class="row card-row">
       <% @events.each do |event| %>
-
         <%= link_to event_path(event) do %>
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-wrapper">
