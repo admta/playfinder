@@ -19,6 +19,13 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @list_place = ListPlace.new
+
+    @markers =
+      [{
+        lat: @place.latitude,
+        lng: @place.longitude,
+        # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place }) }
+      }]
   end
 
   def edit

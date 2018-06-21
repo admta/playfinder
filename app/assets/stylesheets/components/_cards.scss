@@ -6,6 +6,23 @@
   color: white;
   position: relative;
 }
+
+.margin-top{
+  margin-top: 70px;
+}
+
+.card.margin-top {
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5%;
+}
+
+.description h1, .description p{
+  text-align: center;
+}
+
 .card-user {
   position: absolute;
   right: 10px;

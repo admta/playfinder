@@ -3,12 +3,8 @@ class Event < ApplicationRecord
   has_many :list_events
   include PgSearch
 
-
-
-  # geocoded_by :address
-  # after_validation :geocode, if: :will_save_change_to_address?
-
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   pg_search_scope :full_search,
     against: [ :title, :description, :start_date],

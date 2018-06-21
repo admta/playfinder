@@ -11,8 +11,7 @@ class EventsController < ApplicationController
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { event: event}) }
-
+        # infoWindow: { content: render_to_string(partial: "../views/events/map_box.html.erb", locals: { event: event}) }
 
       }
     end
@@ -21,6 +20,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @list_event = ListEvent.new
+
+    @markers =
+      [{
+        lat: @event.latitude,
+        lng: @event.longitude,
+        # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place }) }
+      }]
   end
 
   private
