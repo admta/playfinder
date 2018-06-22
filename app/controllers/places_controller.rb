@@ -1,7 +1,6 @@
 class PlacesController < ApplicationController
 
   def index
-
     if params[:query].present?
       @places = Place.full_search(params[:query])
     else
@@ -17,6 +16,7 @@ class PlacesController < ApplicationController
   end
 
   def show
+    @bucketlist = BucketList.where(user_id: current_user.id)
     @place = Place.find(params[:id])
     @list_place = ListPlace.new
 

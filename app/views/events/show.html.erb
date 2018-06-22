@@ -2,7 +2,7 @@
   <div class="card margin-top" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('<%= @event.photo %>');">
     <div class="description">
       <div class="events-show-form">
-        <%= link_to bucketlist_path, :class => "empty-bucket" do %>
+        <%= link_to bucketlist_path(@bucketlist.first), :class => "empty-bucket" do %>
         <%= image_tag("empty-bucket.png") %>
         <% end %>
       </div>

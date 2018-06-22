@@ -1,7 +1,6 @@
 class BucketlistsController < ApplicationController
 
-
-def show
+  def show
     @user = current_user
     @bucketlist = BucketList.find(params[:id])
     @places = @bucketlist.list_places
@@ -22,5 +21,4 @@ def show
     redirect_to search_path
   end
 end
-# create one list for events and places
 

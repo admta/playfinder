@@ -18,6 +18,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @bucketlist = BucketList.where(user_id: current_user.id)
     @event = Event.find(params[:id])
     @list_event = ListEvent.new
 
