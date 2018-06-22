@@ -5,7 +5,6 @@
         <%= link_to bucketlist_path(@bucketlist.first), :class => "empty-bucket" do %>
         <%= image_tag("empty-bucket.png") %>
         <% end %>
-
         <% if @place.events.empty? %>
         <h1><%= @place.title %> </h1>
         <% else %>
