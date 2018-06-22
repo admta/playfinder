@@ -164,7 +164,7 @@ end
 require 'open-uri'
 require 'nokogiri'
 require 'json'
-require 'pry'
+
 
 
 def scrape_iamsterdam(date)
