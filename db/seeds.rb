@@ -65,7 +65,7 @@ places =
     min_age: 0,
     max_age: 4,
     link: "https://www.facebook.com/groups/Octopusplaygroup/?fref=ts",
-    photo: 'http://robbeburg.com/wp-content/uploads/2012/04/houses.jpg'
+    photo: 'https://amsterdam-mamas.nl/sites/default/files/styles/story_page_big_image/public/Ball%20pool%203%20kids.jpeg?itok=a9p7JYWY'
 
   },
 
@@ -235,7 +235,7 @@ def scrape_iamsterdam(date)
       year = Time.now.year
       event.start_date = Date.parse("#{day}-#{start_month}-#{year}")
       event.end_date = Date.parse("#{end_day}-#{end_month}-#{year}")
-      event.description = data_doc.search('.btn.btn-block.btn-outlined-green').text
+      event.description = data_doc.search('.tag').text
 
       event.place = place
       event.start_time = data_doc.search('date-serie').text
