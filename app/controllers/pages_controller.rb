@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @events = Event.all.limit(4)
   end
 
+
   def search
 
     if params[:query].present?
