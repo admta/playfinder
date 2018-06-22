@@ -2,6 +2,7 @@ class BucketlistsController < ApplicationController
 
 
 def show
+    @user = current_user
     @bucketlist = BucketList.find(params[:id])
     @places = @bucketlist.list_places
     @events = @bucketlist.list_events
