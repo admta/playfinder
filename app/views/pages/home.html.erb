@@ -12,7 +12,7 @@
       </a>
 </div>
 
-<!-- <div class="wrapper"> -->
+
   <div class="yellow-wrapper">
     <div id="about" class="container">
       <div class="row three-steps-main">
@@ -20,7 +20,6 @@
           <div class="center-content">
             <div class="steps column">
               <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
-                  <!-- <h3>SEARCH</h3> -->
                   <div class="front-description">
                     <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
                   </div>
@@ -58,47 +57,37 @@
     </div>
 
 
-<div class="card-container">
-    <h3>Events coming</h3>
-  <div class="row card-row">
-    <% @events.each do |event| %>
 
-        <div class="col-sm-4">
-          <div class="card-wrapper">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= event.photo %>');">
+
+
+<div class='wrapper-card' id="inspiration-card">
+      <div class="container container-card">
+       <div class="cards cards-home">
+        <p class="title-home text-center"><span>HAPPENING NOW</span></p>
+        <% @events.each do |event| %>
+        <div class='event-card'>
+
+          <%= link_to "", event_path(event), class: "card-link" %>
+          <div class="img-card" style="background-image: url('<%= event.photo %>');"></div>
+          <div class="info">
+            <div class="event-name-price">
+              <!-- showing only the first 5 words -->
+              <h3><span><%= event.title.split(" ").first(5).join(" ")  %></span></h3>
             </div>
-              <div class="card-description">
-                <h2><%= event.title %></h2>
+            <div class="detail-info">
+              <p class="event-date"><%= event.start_date %> AMSTERDAM</p>
+            </div>
+            <div class="desc-likes">
+              <p class="desc"><%= event.description %></p>
+            </div>
 
-              </div>
           </div>
         </div>
-
-    <% end %>
-  </div>
-</div>
-</div>
-
-<!-- <div class='wrapper-card' id="inspiration-card">
-  <div class="container container-card">
-    <div class="cards cards-home">
-      <p class="title-home text-center"><span>happening now</span></p>
-      <div class='event-card'>
-        <% @events.each do |event| %>
-          <%= link_to event_path(event), class: "card-link" %>
-            <div class="img-card" style="background-image: url('<%= event.photo %>');"></div>
-              <div class="info">
-                <div class="event-name">
-                  <h3><%= event.title %></h3>
-                </div>
-                  <div class="detail-info">
-                    <p class="place"> <%= event.place.address %> </p>
-                  </div>
-                    <p class="desc"><%= event.description %></p>
-              </div>
-
         <% end %>
       </div>
-      </div>
     </div>
-  </div> -->
+
+  </div>
+
+
+

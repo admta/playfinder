@@ -7,6 +7,21 @@
       %>
       <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search button',:name => nil%>
     <% end %>
+
+
+      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+        <h2></h2>
+
+        <%= simple_form_for :search, method: "get" do |f| %>
+          <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+          <%#= f.input :category, collection: @category_list %>
+          <%= f.button :submit, "Go", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+
+
 <div class= container>
 
     <% @places.each do |place| %>
@@ -20,12 +35,17 @@
        <div class="col-xs-12 col-sm-8">
         <div class="place-description">
           <%= link_to place_path(place) do %>
-         <h2><%= place.title %></h2>
-        <p><%= place.category %></p>
+         <% if place.events.empty? %>
+         <h2><%= place.title %> </h2>
+         <% else %>
+         <h2><%= place.events.first.title %> </h2>>
+         <% end %>
+        <p><%= place.category.split(", ").first %></p>
         <p><%= place.address %></p>
         </div>
       </div>
      </div>
+     <% end %>
 
   <% end %>
 
@@ -40,19 +60,20 @@
        <div class="col-xs-12 col-sm-8" style="border: 2px solid #113a5d">
         <div class= place-decpription>
          <h2><%= event.title %></h2>
-
-        <p><%= event.description %></p>
-        <p><%= event.start_date %></p>
+         <p><%= event.description%></p>
+         <p><%= event.address.split(",").last%></p>
         </div>
       </div>
-     </div>
+
   <% end %>
-</div>
+
 
      </div>
     <% end %>
 
-
+    <% end %>
+    </div>
+    </div>
 
 <div class="responsive">
 <div id="map"

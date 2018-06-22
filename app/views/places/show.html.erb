@@ -6,14 +6,22 @@
         <%= link_to bucketlist_path, :class => "empty-bucket" do %>
         <%= image_tag("empty-bucket.png") %>
         <% end %>
-      </div>
-        <h1><%= @place.title %></h1>
-        <p><%= @place.description %></p>
-        <p>Category: <%= @place.category %></p>
-        <p>Address: <%= @place.address.split(",").second%> <%= @place.address.split(",").third%> <%= @place.address.split(",").fourth%> <%= @place.address.split(",").fifth%>
+
+      <% if @place.events.empty? %>
+      <h1><%= @place.title %> </h1>
+      <% else %>
+      <h1><%= @place.events.first.title %> </h1>>
+      <% end %>
+      <p><%= @place.description %></p>
+      <p>Category: <%= @place.category %></p>
+      <p>Address: <%= @place.address.split(",").second%> <%= @place.address.split(",").third%> <%= @place.address.split(",").fourth%> <%= @place.address.split(",").fifth%>
         <p>Age range: <%= @place.min_age %> to <%= @place.max_age %></p>
-        <p><%= link_to "Check their website for more info", @place.link, :target => "_blank" %></p>
-    </div>
+    <% if @place.events.empty? %>
+    <%=  link_to "Check their website for more info", @place.link, :target => "_blank" %>
+    <% else %>
+    <%= link_to "Check their website for more info", @place.events.first.link, :target => "_blank" %>
+    <% end %>
+    </p>
   </div>
 </div>
 

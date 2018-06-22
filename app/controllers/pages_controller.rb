@@ -3,8 +3,9 @@ class PagesController < ApplicationController
 
   def home
     @places = Place.all.limit(3)
-    @events = Event.all.limit(3)
+    @events = Event.all.limit(4)
   end
+
 
   def search
 
