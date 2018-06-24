@@ -1,22 +1,6 @@
-// .content-color {
-//   background-color: #113a5d;
-//   opacity: 0.50;
-// }
-
-// .content-color h1 {
-//   opacity: 100;
-// }
-
-
-.arrow {
-  position: absolute;
-  bottom: 0;
-}
-
 .arrow img {
   width: 40px;
   margin-bottom: 20px;
-
 }
 
 .row {
@@ -26,14 +10,14 @@
 
 .scroll-center {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
 }
 
 .floating {
   animation-name: floating;
   animation-duration: 1.8s;
   animation-iteration-count: infinite;
-  // transform: rotate(-45deg);
+  animation-timing-function: linear;
 }
 
 
@@ -41,8 +25,12 @@
   0% {
     transform: translateY(0);
   }
-  100% {
+
+  50% {
     transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

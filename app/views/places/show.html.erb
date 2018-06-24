@@ -1,46 +1,46 @@
-<div class = container>
+<div class="container">
   <div class="card margin-top" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('<%= @place.photo %>');">
     <div class="description">
       <div class="events-show-form">
         <%= link_to bucketlist_path(@bucketlist.first), :class => "empty-bucket" do %>
-        <%= image_tag("empty-bucket.png") %>
+          <%= image_tag("empty-bucket.png") %>
         <% end %>
 
-</div>
+      </div>
       <% if @place.events.empty? %>
-      <h1><%= @place.title %> </h1>
+        <h1><%= @place.title %> </h1>
       <% else %>
-      <h1><%= @place.events.first.title %> </h1>
+        <h1><%= @place.events.first.title %> </h1>
       <% end %>
       <p><%= @place.description %></p>
       <p>Category: <%= @place.category %></p>
       <p>Address: <%= @place.address.split(",").second%> <%= @place.address.split(",").third%> <%= @place.address.split(",").fourth%> <%= @place.address.split(",").fifth %>
-        <p>Age range: <%= @place.min_age %> to <%= @place.max_age %></p>
-    <% if @place.events.empty? %>
-    <%=  link_to "Check their website for more info", @place.link, :target => "_blank" %>
-    <% else %>
-    <%= link_to "Check their website for more info", @place.events.first.link, :target => "_blank" %>
+      <p>Age range: <%= @place.min_age %> to <%= @place.max_age %></p>
+      <% if @place.events.empty? %>
+        <%=  link_to "Check their website for more info", @place.link, :target => "_blank" %>
+      <% else %>
+        <%= link_to "Check their website for more info", @place.events.first.link, :target => "_blank" %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class = container>
+    <%= link_to "Go back", events_path %>
+    <%= simple_form_for (@list_place) do |f| %>
+      <%= f.hidden_field :list_place, :value => @place.id  %>
+      <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
     <% end %>
-    </p>
-
   </div>
-</div>
 
-<div class = container>
-  <%= link_to "Go back", events_path %>
-  <%= simple_form_for (@list_place) do |f| %>
- <%= f.hidden_field :list_place, :value => @place.id  %>
- <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
- <% end %>
-</div>
-
-<div class = container>
-  <div class="responsive">
-    <div id="map"
-    style="width: 100%;
-    height: 400px;"
-    data-markers="<%= @markers.to_json %>">
+  <div class = container>
+    <div class="responsive">
+      <div
+        id="map"
+        style="width: 100%; height: 400px;"
+        data-markers="<%= @markers.to_json %>"
+      >
+      </div>
+    </div>
   </div>
-</div>
 </div>
 

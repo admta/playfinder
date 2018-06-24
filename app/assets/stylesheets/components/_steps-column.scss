@@ -1,47 +1,31 @@
-// .first-step {
-//   background-color: #c4ffdd;
-//   padding: 50px;
-// }
 
-// .second-step {
-//   background-color: #c4ffdd;
-//   padding: 50px;
-// }
-
-
-// .third-step {
-//   background-color: #c4ffdd;
-//   padding: 50px;
-// }
-
-
-// .yellow-wrapper {
-//   background-color: #FDFAE5;
-// }
+.yellow-wrapper {
+   //background-color: #FDFAE5;
+   background-color: #BF4342;
+ }
 
 .steps {
   width: 270px;
-  height:370px;
 
-  border-radius: 8px;
-  box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px -25px;
-  border: none;
-  background-color: #BF4342;
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-  color: #f9f9f9;
+  //border-radius: 8px;
+  //box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 30px -25px;
+  //border: none;
+  //background-color: #BF4342;
+  //transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  //color: #f9f9f9;
   text-align: center;
-  padding: 30px;
+  //padding: 30px;
   margin: 20px;
 }
-
-.steps:hover {
-  transform: scale3d(1.07, 1.07, 1.07);
-  box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 50px -20px;
-}
+//
+//.steps:hover {
+//  transform: scale3d(1.07, 1.07, 1.07);
+//  box-shadow: rgba(0, 0, 0, 0.6) 0px 30px 50px -20px;
+//}
 
 .front-description {
   padding: 10px;
-  margin: 10px;
+
 
   // border: 5px solid red;
 }
@@ -49,6 +33,14 @@
 #about {
   margin-top: 0px;
   padding: 50px;
+}
+
+.icon-team {
+  border-radius: 50%;
+}
+
+.pink-wrapper {
+  background-color: #C4FFDD;
 }
 
 
