@@ -7,87 +7,96 @@
     <%= link_to "Search now", search_path , class: "btn-medium" %>
 
   </div>
-      <a class="floating scroll-center" href="#about">
-        <div class="arrow"><%= image_tag "arrow.png" %></div>
-      </a>
+  <a class="floating scroll-center" href="#about">
+    <div class="arrow"><%= image_tag "arrow.png" %></div>
+  </a>
 </div>
 
 
-  <div class="yellow-wrapper">
-    <div id="about" class="container">
-      <div class="row three-steps-main">
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="center-content">
-            <div class="steps column">
-              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
-                  <div class="front-description">
-                    <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
-                  </div>
-                  <%= link_to "Search now", search_path , class: "btn-description" %>
+<div class="yellow-wrapper">
+  <div id="about" class="container">
+    <div class="row three-steps-main">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="center-content">
+          <div class="steps column">
+            <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
+            <div class="front-description">
+              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
             </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="center-content">
-            <div class="steps column">
-              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
-
-                  <div class="front-description">
-                    <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
-                  </div>
-                  <%= link_to "Discover", search_path , class: "btn-description" %>
-
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="center-content">
-            <div class="steps column">
-              <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
-
-                <div class="front-description">
-                  <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
-                </div>
-                <%= link_to "Share now", search_path , class: "btn-description" %>
-            </div>
+            <%= link_to "Search now", search_path , class: "btn-description" %>
           </div>
         </div>
       </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="center-content">
+          <div class="steps column">
+            <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
+
+            <div class="front-description">
+              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+            </div>
+            <%= link_to "Discover", search_path , class: "btn-description" %>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="center-content">
+          <div class="steps column">
+            <img class="icon" height="42" width="42" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
+
+            <div class="front-description">
+              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+            </div>
+            <%= link_to "Share now", search_path , class: "btn-description" %>
+          </div>
+        </div>
       </div>
     </div>
-
-
-
+  </div>
+</div>
 
 
 <div class='wrapper-card' id="inspiration-card">
-      <div class="container container-card">
-       <div class="cards cards-home">
-        <p class="title-home text-center"><span>HAPPENING NOW</span></p>
-        <% @events.each do |event| %>
+  <div class="container container-card">
+    <div class="cards cards-home">
+      <p class="title-home text-center"><span>HAPPENING NOW</span></p>
+      <% @events.each do |event| %>
         <div class='event-card'>
-
-          <%= link_to "", event_path(event), class: "card-link" %>
           <div class="img-card" style="background-image: url('<%= event.photo %>');"></div>
           <div class="info">
             <div class="event-name-price">
               <!-- showing only the first 5 words -->
               <h3><span><%= event.title.split(" ").first(5).join(" ")  %></span></h3>
             </div>
+
             <div class="detail-info">
-              <p class="event-date"><%= event.start_date %> AMSTERDAM</p>
+              <p class="event-date"><%= event.start_date.to_formatted_s(:long_ordinal) %> AMSTERDAM</p>
             </div>
             <div class="desc-likes">
               <p class="desc"><%= event.description %></p>
-            </div>
+              <ul class="list-inline">
+                <li>
+                  <%= link_to list_event_path(event.id), method: :post, data: { confirm: "Are you sure?" } do %>
+                    <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
+                  <% end %>
+                </li>
+                <li>
+                  <a href="">
+                    <i class="fa fa-share"></i>
+                  </a>
+                </li>
+              </ul>
 
+            </div>
           </div>
         </div>
-        <% end %>
-      </div>
+      <% end %>
     </div>
-
   </div>
+</div>
+
+
 
 
 

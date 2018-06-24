@@ -1,29 +1,23 @@
 <div id="bucketlist" class="container">
-    <div class="profile text-center">
-      <div class="main">
-        <div class="main-content">
-          <%= cl_image_tag @user.photo, :width=>150, :height=>150, :crop=>:fit, :class=>"img-circle" %>
-            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-            <%= link_to edit_user_registration_path(@user),  method: :get do %>
-            <i class="far fa-edit edit_plane"></i>
-            </span>
-            <% end %>
-        </div>
+  <div class="profile text-center">
+    <div class="main">
+      <div class="main-content">
+        <%= cl_image_tag @user.photo, :width=>150, :height=>150, :crop=>:fit, :class=>"img-circle" %>
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <%= link_to edit_user_registration_path(@user),  method: :get do %>
+          <i class="far fa-edit edit_plane"></i>
+        <% end %>
       </div>
     </div>
-
-
-
-
-
-
-
-
-<div class="cards-container">
-  <div class="title text-center mb-5">
-    <h2 class="mb-3">You recently saved</h2>
-    <p>Amazing venues and events you want to attend to.</p>
   </div>
+
+
+
+  <div class="cards-container">
+    <div class="title text-center mb-5">
+      <h2 class="mb-3">You recently saved</h2>
+      <p>Amazing venues and events you want to attend to.</p>
+    </div>
 
     <div class="row card-row">
       <% @events.each do |event| %>
@@ -31,38 +25,26 @@
         <div class="col-xs-12 col-sm-6 col-md-4">
           <div class="card-wrapper ">
             <div class="card-bucket">
-            <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
-            <div class="card-body">
-              <h5 class="card-title"><%= event.event.title.split(" ").first(5).join(" ")  %></h5>
-              <p class="card-text"><%= event.event.description %></p>
+              <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
+              <div class="card-body">
+                <h5 class="card-title"><%= event.event.title.split(" ").first(5).join(" ")  %></h5>
+                <p class="card-text"><%= event.event.description %></p>
+              </div>
+              <%= link_to "", event_path(event.event), class: "card-link" %>
+              <div class="card-footer">
+                <ul class="list-inline product-controls hidden-sm hidden-xs">
+                  <li><a href=""><i class="fa fa-heart"></i></a></li>
+                  <li><%= link_to list_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
+                      <i class="fa fa-trash"></i>
+                    <% end %></li>
+                  <li><a href=""><i class="fa fa-share"></i></a></li>
+                </ul>
+              </div>
             </div>
-            <%= link_to "", event_path(event.event), class: "card-link" %>
-            <div class="card-footer">
-              <ul class="list-inline product-controls hidden-sm hidden-xs">
-                <li><a href=""><i class="fa fa-heart"></i></a></li>
-                <li><%= link_to list_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
-                    <i class="fa fa-trash"></i>
-                  <% end %></li>
-                <li><a href=""><i class="fa fa-share"></i></a></li>
-              </ul>
-            </div>
-          </div>
 
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
-
-
 </div>
-
-
-
-</div>
-
-
-
-
-
-

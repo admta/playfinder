@@ -34,6 +34,26 @@
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
+
+  .icon {
+    fill: #fff;
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+    margin-left: 5px;
+  }
+
+  .dropdown-toggle {
+    color: white;
+  }
+}
+
+.navbar-wagon-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 /* Navbar link */
