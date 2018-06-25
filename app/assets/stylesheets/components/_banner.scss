@@ -1,9 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  // height: calc(100vh - 70px);
   height: 100vh;
-  /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
@@ -17,9 +15,6 @@
   font-size: 70px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  // text-decoration: underline;
-  // text-decoration-style: solid;
-  // text-decoration-color: #c4ffdd;
   color: #f9f9f9;
 }
 .banner p {
@@ -31,8 +26,17 @@
   margin-bottom: 30px;
 }
 
-// .banner-home {
-//   height: 70vh;
 
-// }
+.banner-search {
+  background-image: url('https://images.pexels.com/photos/12165/nature-people-girl-forest-12165.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');
+  color: white;
+  text-align: center;
+  height: 70vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-attachment: fixed;
+  position: relative;
+}
 

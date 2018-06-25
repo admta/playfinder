@@ -4,6 +4,13 @@ class PagesController < ApplicationController
   def home
     @places = Place.all.limit(3)
     @events = Event.all.limit(4)
+
+    if user_signed_in?
+      @selected_events = []
+      current_user.bucket_list.list_events.each do |list_event|
+        @selected_events << list_event.event
+      end
+    end
   end
 
 
@@ -53,7 +60,6 @@ class PagesController < ApplicationController
         lng: place.longitude,
         # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place })
       }
-
     end
 
      @markers = @events.where.not(latitude: nil, longitude: nil).each do |event|

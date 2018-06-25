@@ -10,7 +10,7 @@ class ListEventsController < ApplicationController
     @event = Event.find(params[:list_event][:list_event].to_i)
 
     @event_list = ListEvent.create(bucket_list: @bucketlist, event: @event)
-    redirect_to bucketlist_path(@bucketlist)
+
   end
 
   def destroy
