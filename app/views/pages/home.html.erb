@@ -13,7 +13,7 @@
 </div>
 
 
-<div class="yellow-wrapper">
+<div class="red-wrapper">
   <div id="about" class="container">
     <div class="row three-steps-main">
       <div class="col-xs-12 col-sm-6 col-md-4">
@@ -21,7 +21,7 @@
           <div class="steps column">
             <img class="icon-description" height="50" width="50" src="https://image.flaticon.com/icons/svg/944/944363.svg" />
             <div class="front-description">
-              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+              <p>Search through a large database, for all events and playgrounds for your kid. No waste of time.</p>
             </div>
             <%= link_to "Search now", search_path , class: "btn-description" %>
           </div>
@@ -33,7 +33,7 @@
             <img class="icon-description" height="50" width="50" src="https://image.flaticon.com/icons/svg/809/809113.svg" />
 
             <div class="front-description">
-              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+              <p>Like something? Keep it in your bucket list, receive a remind direct in your calender, or email.</p>
             </div>
             <%= link_to "Discover", search_path , class: "btn-description" %>
 
@@ -46,7 +46,7 @@
             <img class="icon-description" height="50" width="50" src="https://image.flaticon.com/icons/svg/809/809448.svg" />
 
             <div class="front-description">
-              <p>Playfinder was design to make your life easier. Find amazing<br>adventures right in your neighborhood</p>
+              <p>Invite your friends, and family in one click: share your favorites events and venues right now. </p>
             </div>
             <%= link_to "Share now", search_path , class: "btn-description" %>
           </div>
@@ -63,6 +63,7 @@
       <p class="title-home text-center"><span>HAPPENING NOW</span></p>
       <% @events.each do |event| %>
         <div class='event-card'>
+          <%= link_to "", event_path(event), class: "card-link" %>
           <div class="img-card" style="background-image: url('<%= event.photo %>');"></div>
           <div class="info">
             <div class="event-name-price">
@@ -75,18 +76,44 @@
             </div>
             <div class="desc-likes">
               <p class="desc"><%= event.description %></p>
-              <ul class="list-inline">
-                <li>
-                  <%= link_to list_event_path(event.id), method: :post, data: { confirm: "Are you sure?" } do %>
-                    <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
+              <% if user_signed_in? %>
+                <ul class="list-inline">
+                  <% if @selected_events.include?(event) %>
+                    <li>
+                      <div class="bucket-disappear">
+                        <i class="fa fa-check-circle"></i>
+                      </div>
+
+                    </li>
+
+                  <% else %>
+                    <li>
+                      <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post do %>
+                        <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
+                      <% end %>
+                    </li>
                   <% end %>
-                </li>
-                <li>
-                  <a href="">
-                    <i class="fa fa-share"></i>
-                  </a>
-                </li>
-              </ul>
+
+                  <li>
+                    <a href="">
+                      <i class="fa fa-share"></i>
+                    </a>
+                  </li>
+                </ul>
+              <% else %>
+                <ul class="list-inline">
+                  <li>
+                    <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post do %>
+                      <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
+                    <% end %>
+                  </li>
+                  <li>
+                    <a href="">
+                      <i class="fa fa-share"></i>
+                    </a>
+                  </li>
+                </ul>
+              <% end %>
 
             </div>
           </div>
@@ -99,15 +126,15 @@
 <div class="pink-wrapper">
   <div id="about" class="container">
     <div class="row three-steps-main">
-      <h1>MEET THE TEAM</h1>
+      <p class="title-team text-center"><span>MEET THE TEAM</span></p>
+
       <div class="col-xs-12 col-sm-6 col-md-4">
         <div class="center-content">
           <div class="steps column">
             <img class="icon-team" height="200" width="200" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/qlq8bylbb7ock6ggknhi.jpg" />
-            <div class="front-description">
-              <p>NATHALIA</p>
+            <div class="team-description">
+              <p class="team-name"><span>NATHALIA</span></p>
             </div>
-            <%= link_to "Search now", search_path , class: "btn-description" %>
           </div>
         </div>
       </div>
@@ -116,11 +143,9 @@
           <div class="steps column">
             <img class="icon-team" height="200" width="200" src="https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/msmtmeifg0x1knic8qrv.jpg" />
 
-            <div class="front-description">
-              <p>MANDY</p>
+            <div class="team-description">
+              <p class="team-name"><span>MANDY</span></p>
             </div>
-            <%= link_to "Discover", search_path , class: "btn-description" %>
-
           </div>
         </div>
       </div>
@@ -129,10 +154,9 @@
           <div class="steps column">
             <img class="icon-team" height="200" width="200" src="https://avatars2.githubusercontent.com/u/38267204?v=4" />
 
-            <div class="front-description">
-              <p>LUCIA</p>
+            <div class="team-description">
+              <p class="team-name"><span>LUCIA</span></p>
             </div>
-            <%= link_to "Share now", search_path , class: "btn-description" %>
           </div>
         </div>
       </div>
