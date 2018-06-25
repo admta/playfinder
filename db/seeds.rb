@@ -56,6 +56,19 @@ places =
     photo: 'http://robbeburg.com/wp-content/uploads/2012/04/houses.jpg'
 
   },
+
+  {
+    category: 'Venue',
+    title: 'Tolhuistuin concertzaal',
+    address: 'IJpromenade 2, 1031 KT AMSTERDAM',
+    description: 'The Tolhuis (toll house) lay on the spit of Volewijck which, since the 19th century, has protruded two kilometres into the IJ from the Waterlandse Zeedijk (dyke) and is closed in by two polders. From 1662 the Tolhuis collected tolls from ships in the Buikslotertrekvaart (canal). The surrounding green area quickly became a popular attraction for city dwellers. The garden is open to the public.',
+    indoor: true,
+    min_age: 3,
+    max_age: 18,
+    link: "https://tolhuistuin.nl/agenda/",
+    photo: "https://tolhuistuin.nl/wp-content/uploads/2015/02/10863961_832301336834116_1052547282495025604_o-850x450.jpg"
+  },
+
   {
     category: 'Playground with Cafés',
     title: ' Octopus International Playgroup',
@@ -140,6 +153,7 @@ places =
     photo: "http://www.cotesaintluc.org/files/u1/parks_and_recreation/images/Rembrandt%20mosaic.jpg"
   }
 
+
 ]
 
 # add migration for min age and max age
@@ -199,14 +213,15 @@ def scrape_iamsterdam(date)
       data = open(agenda_link).read
       data_doc = Nokogiri::HTML(data)
 
+      address = data_doc.search('span.location-info__text').to_a.map(&:text).join(' ')
 
       title = data_doc.search('a.location-info__highlight').text
 
 
-      unless place = Place.where(title: title).first
+      unless place = Place.where(address: address).last
         place = Place.new
         place.title = title
-        place.address = data_doc.search('span.location-info__text').to_a.map(&:text).join(', ')
+        place.address = data_doc.search('span.location-info__text').to_a.map(&:text).join(' ')
         place.category = data_doc.search('a.tag').to_a.map(&:text).join(', ')
 
         place.indoor = true
