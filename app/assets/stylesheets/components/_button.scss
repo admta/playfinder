@@ -2,9 +2,9 @@
   color: #c4ffdd;
   border: 1px solid #c4ffdd;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: lighter;
-  // opacity: 0.6;
+  transition: background-color 0.5s ease 0s;
   background-color: transparent;
 }
 .btn-medium:hover {
@@ -18,9 +18,9 @@
   color: #FFEE93;
   border: 1px solid #FFEE93;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: lighter;
-  // opacity: 0.6;
+  transition: background-color 0.5s ease 0s;
   background-color: transparent;
 }
 .btn-description:hover {

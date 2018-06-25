@@ -1,0 +1,27 @@
+
+.title-team span {
+  font-family: 'Shadows Into Light', cursive;
+  background-color: #BF4342;
+  padding: 5px 10px;
+  font-size: 32px;
+  font-weight: bolder;
+  color: white;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  margin-bottom: 20px;
+}
+
+.text-center {
+  margin-bottom: 50px;
+}
+
+.team-description {
+  color: black;
+}
+
+.team-name {
+  span {
+    padding: 5px 10px;
+    background-color: #BF4342;
+    color: white;
+  }
+}

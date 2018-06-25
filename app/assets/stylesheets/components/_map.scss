@@ -1,0 +1,28 @@
+#map {
+  flex: 1 0 0;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin-bottom: 10px;
+}
+
+.main-container {
+  display: flex;
+  margin-top: 25px;
+  margin-left: 30px;
+}
+
+
+.cards-container {
+  flex: 2 0 0;
+  margin-right: 10px;
+}
+.card-wrapper {
+  position: relative;
+}
+
+.card-container {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
