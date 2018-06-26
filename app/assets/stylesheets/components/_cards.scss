@@ -1,14 +1,22 @@
-.margin-top{
-  margin-top: 105px;
-}
+
 .card.margin-top {
   height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5%;
+  margin-top: 105px;
 }
 .description h1, .description p{
+  text-align: center;
+}
+
+.margin-top {
+  background-size: cover !important;
+  background-position: center;
+}
+
+.info-title {
   text-align: center;
 }
 
