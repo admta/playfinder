@@ -1,50 +1,62 @@
-<div id="bucketlist" class="container">
-  <div class="profile text-center">
-    <div class="main">
-      <div class="main-content">
-        <%= cl_image_tag @user.photo, :width=>150, :height=>150, :crop=>:fit, :class=>"img-circle" %>
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <%= link_to edit_user_registration_path(@user),  method: :get do %>
-          <i class="far fa-edit edit_plane"></i>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="cards-container">
-    <div class="title text-center mb-5">
-      <h2 class="mb-3">You recently saved</h2>
-      <p>Amazing venues and events you want to attend to.</p>
-    </div>
-
-    <div class="row card-row">
+<div class='wrapper-card' id="inspiration-card">
+  <div class="container container-card">
+    <div class="cards cards-bucket">
       <% @events.each do |event| %>
-
-        <div class="col-xs-12 col-sm-6 col-md-4">
-          <div class="card-wrapper ">
-            <div class="card-bucket">
-              <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
-              <div class="card-body">
-                <h5 class="card-title"><%= event.event.title.split(" ").first(5).join(" ")  %></h5>
-                <p class="card-text"><%= event.event.description %></p>
-              </div>
-              <%= link_to "", event_path(event.event), class: "card-link" %>
-              <div class="card-footer">
-                <ul class="list-inline product-controls hidden-sm hidden-xs">
-                  <li><a href=""><i class="fa fa-heart"></i></a></li>
-                  <li><%= link_to list_event_path(event), method: :delete, data: { confirm: "Are you sure?" } do %>
-                      <i class="fa fa-trash"></i>
-                    <% end %></li>
-                  <li><a href=""><i class="fa fa-share"></i></a></li>
-                </ul>
-              </div>
+        <div class="bucket-card">
+          <%= link_to "", event_path(event), class: "card-link" %>
+          <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
+          <div class="info">
+            <div class="event-name-price">
+              <!-- showing only the first 5 words -->
+              <h3><span><%= event.event.title.split(" ").first(5).join(" ")  %></span></h3>
             </div>
 
+            <div class="detail-info">
+              <p class="event-date"><%= event.event.start_date.to_formatted_s(:long_ordinal) %> AMSTERDAM</p>
+            </div>
+            <div class="desc-likes">
+              <p class="desc"><%= event.event.description %></p>
+              <ul class="list-inline">
+                <li><%= link_to list_event_path(event), class: "bucket-link", method: :delete do %>
+                    <i class="fa fa-trash"></i>
+                    <% end %>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+      <% @places.each do |place| %>
+        <div class="bucket-card">
+          <%= link_to "", place_path(place), class: "card-link" %>
+          <div class="img-card" style="background-image: url('<%= place.place.photo %>');"></div>
+          <div class="info">
+            <div class="event-name-price">
+              <!-- showing only the first 5 words -->
+              <h3><span><%= place.place.title.split(" ").first(5).join(" ")  %></span></h3>
+            </div>
+
+            <div class="detail-info">
+              <p class="event-date"><%= place.place.address %></p>
+            </div>
+            <div class="desc-likes">
+              <p class="desc"><%= place.place.description %></p>
+              <ul class="list-inline">
+                <li><%= link_to list_place_path(place), class: "bucket-link", method: :delete do %>
+                    <i class="fa fa-trash"></i>
+                  <% end %></li>
+              </ul>
+
+            </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+</div>
+<div class="text-center">
+  <%= link_to "Keep on searching", search_path , class: "btn-links" %>
+  <%= link_to "Home", root_path , class: "btn-links" %>
 </div>

@@ -2,14 +2,14 @@
   <div class="card margin-top" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), url('<%= @event.photo %>');">
     <div class="description">
       <div class="events-show-form">
-        <%= link_to bucketlist_path(@bucketlist.first), :class => "empty-bucket" do %>
-        <%= image_tag("empty-bucket.png") %>
+        <%= link_to list_events_path(list_event: {list_event: @event.id}), class: "empty-bucket", method: :post do %>
+          <%= image_tag("empty-bucket.png") %>
         <% end %>
       </div>
       <h1><%= @event.title %></h1>
       <p>Address:<%= @event.address.split(",").third%><%= @event.address.split(",").fourth%><%= @event.address.split(",").last%></p>
       <p><%= @event.start_date.strftime("From %d-%m-%Y") %><%= @event.end_date.strftime(" until %d-%m-%Y") %></p>
-      <p><%= @event.price.split(",").first%> <%= @event.description %>
+      <p><%= @event.price.split(",").first %> <%= @event.description %>
       </p>
       <p><%= link_to "Check their website for more info", @event.link, :target => "_blank" %></p>
     </div>
@@ -18,10 +18,6 @@
 
 <div class= container>
   <%= link_to "Go back",events_path %>
-  <%= simple_form_for (@list_event) do |f| %>
- <%= f.hidden_field :list_event, :value => @event.id  %>
- <%= f.submit value: "Add to your BucketList", class: "btn btn-primary btn-lg button" %>
- <% end %>
 </div>
 
 <div class= container>

@@ -4,18 +4,54 @@ class PagesController < ApplicationController
   def home
     @places = Place.all.limit(3)
     @events = Event.all.limit(4)
+
+    if user_signed_in?
+      @selected_events = []
+      current_user.bucket_list.list_events.each do |list_event|
+        @selected_events << list_event.event
+      end
+    end
   end
 
 
   def search
+    query = params[:query] || ""
+    if params[:search] && category = params[:search][:category] && category && !category.empty?
+      query << " " << category.first
+    end
 
-    if params[:query].present?
-      @places = Place.full_search(params[:query])
-      @events = Event.full_search(params[:query])
+    if !query.empty?
+      @places = Place.full_search(query)
+      @events = Event.full_search(query)
     else
       @places = Place.all
       @events = Event.all
     end
+
+    if params[:datepick] && !params[:datepick].empty?
+      @events = @events.datepick(Date.parse(params[:datepick]))
+      # @events = Event.full_search(params[:query])
+    end
+
+    if params[:age_0_2] && !params[:age_0_2].empty?
+      @events = @events.age_0_2
+      @places = @places.age_0_2
+      # @events = Event.full_search(params[:query])
+    end
+
+    if params[:age_3_8] && !params[:age_3_8].empty?
+      @events = @events.age_3_8
+      @places = @places.age_3_8
+      # @events = Event.full_search(params[:query])
+    end
+
+    if params[:age_9_15] && !params[:age_9_15].empty?
+      @events = @events.age_9_15
+      @places = @places.age_9_15
+      # @events = Event.full_search(params[:query])
+    end
+
+
 
     @markers = @places.where.not(latitude: nil, longitude: nil).map do |place|
       {
@@ -25,10 +61,23 @@ class PagesController < ApplicationController
       }
     end
 
-
      @events.where.not(latitude: nil, longitude: nil).each do |event|
       @markers << { lat: event.latitude, lng: event.longitude }
     end
   end
+
+  # def filter
+  # @events = Event.where(nil) # creates an anonymous scope
+  #  @events = @events.title(params[:title]) if params[:title].present?
+  #  @events = @events.description(params[:description]) if params[:description].present?
+  #  @events = @events.start_date(params[:start_date]) if params[:start_date].present?
+
+
+
+  private
+
+#   def filtering_params
+# params.slice(:title, :description, :start_date)
+#   end
 
 end

@@ -1,10 +1,11 @@
 .btn-medium {
+  font-family: 'Roboto', sans-serif;
   color: #c4ffdd;
   border: 1px solid #c4ffdd;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: lighter;
-  // opacity: 0.6;
+  transition: background-color 0.5s ease 0s;
   background-color: transparent;
 }
 .btn-medium:hover {
@@ -15,12 +16,13 @@
 }
 
 .btn-description {
+  font-family: 'Roboto', sans-serif;
   color: #FFEE93;
   border: 1px solid #FFEE93;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 30px;
   font-weight: lighter;
-  // opacity: 0.6;
+  transition: background-color 0.5s ease 0s;
   background-color: transparent;
 }
 .btn-description:hover {
@@ -31,6 +33,7 @@
 }
 
 .btn-bucketlist {
+  font-family: 'Roboto', sans-serif;
   color: white;
   border: 1px solid #113a5d;
   padding: 10px 15px;
@@ -46,3 +49,21 @@
   color: #113a5d;
 }
 
+.btn-links {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    border: 1px solid #113a5d;
+    padding: 10px 15px;
+    border-radius: 30px;
+    font-weight: lighter;
+    transition: background-color 0.5s ease 0s;
+    background-color: #113a5d;
+  }
+  .btn-links:hover {
+    background-color: #C4FFDD;
+    opacity: 1;
+    text-decoration: none;
+    color: #113a5d;
+    border: 1px solid #C4FFDD;
+
+}
