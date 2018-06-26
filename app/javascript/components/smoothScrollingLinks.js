@@ -5,7 +5,7 @@
       event.preventDefault();
       var hash = this.hash;
       $('html, body').stop().animate({
-        'scrollTop': $(hash).offset().top-10
+        'scrollTop': $(hash).offset().top - 60
      }, 900, 'swing'
      );
     }
