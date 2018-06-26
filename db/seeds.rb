@@ -42,7 +42,7 @@ end
 # t.string "photo_url"
 
 places =
-<<<<<<< HEAD
+
     [
         {
             category: 'Playground',
