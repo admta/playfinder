@@ -16,10 +16,9 @@ class PagesController < ApplicationController
 
   def search
     query = params[:query] || ""
-    if params[:search] && category = params[:search][:category]
-      query << "& (#{category.join(" OR ")})"
+    if params[:search] && category = params[:search][:category] && category && !category.empty?
+      query << " " << category.first
     end
-
 
     if !query.empty?
       @places = Place.full_search(query)
@@ -29,8 +28,8 @@ class PagesController < ApplicationController
       @events = Event.all
     end
 
-    if params[:start_date] && !params[:start_date].empty?
-      @events = @events.start_date(params[:start_date])
+    if params[:datepick] && !params[:datepick].empty?
+      @events = @events.datepick(Date.parse(params[:datepick]))
       # @events = Event.full_search(params[:query])
     end
 
@@ -62,7 +61,7 @@ class PagesController < ApplicationController
       }
     end
 
-     @markers = @events.where.not(latitude: nil, longitude: nil).each do |event|
+     @events.where.not(latitude: nil, longitude: nil).each do |event|
       @markers << { lat: event.latitude, lng: event.longitude }
     end
   end
