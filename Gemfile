@@ -19,7 +19,6 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-gem "geocoder"
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
