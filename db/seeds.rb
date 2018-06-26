@@ -27,6 +27,13 @@ users =
     last_name: 'Vader',
     email: 'sw@gmail.com',
     password: '123456'
+  },
+
+  {
+    first_name: 'Play',
+    last_name: 'Finder',
+    email: 'Playfinderapp@gmail.com',
+    password: '123456'
   }
 ]
 
