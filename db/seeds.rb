@@ -42,6 +42,7 @@ end
 # t.string "photo_url"
 
 places =
+<<<<<<< HEAD
     [
         {
             category: 'Playground',
@@ -201,6 +202,7 @@ places =
 
     ]
 
+
 # add migration for min age and max age
 
 places.each do |place|
@@ -258,15 +260,16 @@ def scrape_iamsterdam(date)
     data = open(agenda_link).read
     data_doc = Nokogiri::HTML(data)
 
+      address = data_doc.search('span.location-info__text').to_a.map(&:text).join(' ')
 
     title = data_doc.search('a.location-info__highlight').text
 
 
-    unless place = Place.where(title: title).first
-      place = Place.new
-      place.title = title
-      place.address = data_doc.search('span.location-info__text').to_a.map(&:text).join(', ')
-      place.category = data_doc.search('a.tag').to_a.map(&:text).join(', ')
+      unless place = Place.where(address: address).last
+        place = Place.new
+        place.title = title
+        place.address = data_doc.search('span.location-info__text').to_a.map(&:text).join(' ')
+        place.category = data_doc.search('a.tag').to_a.map(&:text).join(', ')
 
       place.indoor = true
       place.min_age = 0
@@ -276,30 +279,37 @@ def scrape_iamsterdam(date)
     end
 
 
-
-    event.photo = data_doc.search('.slider-image').to_a.first.to_s.match(/url\('(.*)'\)/)[1]
-    event.title = data_doc.search('h1','a.location-info__highlight').text
-    event.description = data_doc.search('page-introduction__text').text
-    info = data_doc.search('span.location-info__text', 'span.location-info__align-icon')
-    event.link = data_doc.search('.btn.btn-block.btn-outlined-green').map {|a| a.attribute('href').to_s}.first
+      event.photo = data_doc.search('.slider-image').to_a.first.to_s.match(/url\('(.*)'\)/)[1]
+      event.title = data_doc.search('h1','a.location-info__highlight').text
+      event.description = data_doc.search('page-introduction__text').text
+      info = data_doc.search('span.location-info__text', 'span.location-info__align-icon')
+      event.link = data_doc.search('.btn.btn-block.btn-outlined-green').map {|a| a.attribute('href').to_s}.first
 
 
     event.address = data_doc.search('span.location-info__text').map(&:text).join(" ")
 
-    event.price = data_doc.search('span.location-info__highlight').map(&:text).join(", ")
-    day = data_doc.search('.date-day').map(&:text).first
-    end_day = data_doc.search('.date-day').map(&:text).last
-    start_month = data_doc.search('.date-month').map(&:text).first
-    end_month = data_doc.search('.date-month').map(&:text).last
-    year = Time.now.year
-    event.start_date = Date.parse("#{day}-#{start_month}-#{year}")
-    event.end_date = Date.parse("#{end_day}-#{end_month}-#{year}")
-    event.description = data_doc.search('.tag').text
 
-    event.place = place
-    event.start_time = data_doc.search('date-serie').text
-    #event_link = data_doc.search('btn btn-block btn-outlined-green').text
-    event.save!
+      event.price = data_doc.search('span.location-info__highlight').map(&:text).join(", ")
+      day = data_doc.search('.date-day').map(&:text).first
+      end_day = data_doc.search('.date-day').map(&:text).last
+      start_month = data_doc.search('.date-month').map(&:text).first
+      end_month = data_doc.search('.date-month').map(&:text).last
+      year = Time.now.year
+      event.start_date = Date.parse("#{day}-#{start_month}-#{year}")
+      event.end_date = Date.parse("#{end_day}-#{end_month}-#{year}")
+      if event.end_date < event.start_date
+        event.end_date = event.end_date + 1.years
+      end
+      event.description = data_doc.search('.tag').text
+
+      event.place = place
+      event.start_time = data_doc.search('date-serie').text
+      #event_link = data_doc.search('btn btn-block btn-outlined-green').text
+      existing_event = Event.where(start_date: event.start_date, end_date: event.end_date, title: event.title).first
+      if !existing_event
+        event.save!
+      end
+
 
 
     # puts start_time

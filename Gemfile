@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+  source 'https://rubygems.org'
 ruby '2.4.4'
 
 gem 'bootsnap', require: false
@@ -21,6 +21,8 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
+
+gem 'jquery-rails'
 
 
 group :development do
