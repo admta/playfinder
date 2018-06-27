@@ -39,7 +39,7 @@
                     <%= image_tag("bucket.png") %>
                   <% end %>
 
-
+                  <%= social_share_button_tag(@event.title, :allow_sites => %w(twitter facebook google_plus tumblr pinterest)) %>
               </div>
                 <div class="link-show">
                <p><%= link_to "To the Website", @event.link, target: "_blank", class: "btn-show" %></p>
@@ -58,9 +58,6 @@
 
     </div>
   </div>
-
-
-</div>
 
 
 </div>

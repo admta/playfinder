@@ -6,29 +6,36 @@ BucketList.destroy_all
 User.destroy_all
 
 users =
-    [
-        {
-            first_name: 'Lucia',
-            last_name: 'Espiga',
-            email: 'lucia@gmail.com',
-            password: '123456'
+[
+  {
+    first_name: 'Lucia',
+    last_name: 'Espiga',
+    email: 'lucia@gmail.com',
+    password: '123456'
 
-        },
+  },
 
-        {
-            first_name: 'Nathalia',
-            last_name: 'Coutinho',
-            email: 'nc@gmail.com',
-            password: '123456'
-        },
+  {
+    first_name: 'Nathalia',
+    last_name: 'Coutinho',
+    email: 'nc@gmail.com',
+    password: '123456'
+  },
 
-        {
-            first_name: 'Darth',
-            last_name: 'Vader',
-            email: 'sw@gmail.com',
-            password: '123456'
-        }
-    ]
+  {
+    first_name: 'Darth',
+    last_name: 'Vader',
+    email: 'sw@gmail.com',
+    password: '123456'
+  },
+
+  {
+    first_name: 'Play',
+    last_name: 'Finder',
+    email: 'Playfinderapp@gmail.com',
+    password: '123456'
+  }
+]
 
 users.each do |user|
   User.create!(user)

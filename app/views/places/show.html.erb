@@ -26,6 +26,7 @@
 
   <div class = container>
     <%= link_to "Go back", events_path %>
+    <%= social_share_button_tag(@place.title, :allow_sites => %w(twitter facebook google_plus tumblr pinterest)) %>
   </div>
 
   <div class = container>
