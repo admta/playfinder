@@ -1,3 +1,4 @@
+
 <div class="banner banner-home" style="background-image: linear-gradient(-225deg, #101010 0%, rgba(0,36,61,0.5) 0%), url('https://images.pexels.com/photos/6459/sand-summer-outside-playing.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
   <div class="banner-content">
     <h4>Welcome to </h4>
@@ -88,7 +89,7 @@
 
                   <% else %>
                     <li>
-                      <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post do %>
+                      <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post, remote: true do %>
                         <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
                       <% end %>
                     </li>
@@ -103,7 +104,7 @@
               <% else %>
                 <ul class="list-inline">
                   <li>
-                    <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post do %>
+                    <%= link_to list_events_path(list_event: {list_event: event.id}), class: "bucket-link", method: :post, remote: true do %>
                       <svg class="event-card-action-icon js-add-to-bookmark icon icon-bucket"><use xlink:href="#icon-bucket"></use></svg>
                     <% end %>
                   </li>

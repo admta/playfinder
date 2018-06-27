@@ -67,3 +67,25 @@
     border: 1px solid #C4FFDD;
 
 }
+
+
+.btn-show {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  border: 1px solid $red;
+  padding: 10px 15px;
+  font-weight: lighter;
+  transition: background-color 0.5s ease 0s;
+  background-color: $red;
+  font-weight: bold;
+}
+.btn-show:hover {
+  background-color: #8C1C13;
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #8C1C13;
+
+}
+
+

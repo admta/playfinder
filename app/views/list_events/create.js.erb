@@ -1,8 +1,11 @@
-var icon = document.querySelector(".event-card-action-icon");
+var bucketLinks = document.querySelectorAll(".bucket-link");
 
-  icon.addEventListener(('click', (event) => {
-      icon.innerHTML = "<i class=\"fa fa-check-circle\"></i>"
-  })
-)
-
-
+bucketLinks.forEach(function(element){
+    console.log("It works!", element);
+    element.addEventListener('ajax:success', function(event) {
+        event.target.innerHTML = "<i class='fa fa-check-circle'></i>";
+    });
+    element.addEventListener('ajax:before', function(event) {
+        event.target.innerHTML = "<i class='fa fa-check-circle'></i>";
+    });
+});

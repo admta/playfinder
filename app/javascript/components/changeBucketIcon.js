@@ -1,13 +1,16 @@
 //
 // function changeBucketIcon () {
-//     document.querySelectorAll(".bucket-link").forEach((element) => {
+//     document.querySelectorAll(".event-card-action-icon").forEach((element) => {
 //
 //         element.addEventListener('click', (event) => {
-//             event.target.classList.add('bucket-disappear');
+//             element.innerHTML = "<i class=\"fa fa-check-circle\"></i>"
+//             // element.classList.toggle('bucket-disappear');
+//             // element.classList.toggle('bucket-link');
+//
 //         });
 //     });
 // }
 //
 // export { changeBucketIcon };
-
-
+//
+//
