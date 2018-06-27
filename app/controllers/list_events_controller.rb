@@ -18,7 +18,7 @@ class ListEventsController < ApplicationController
     @user = current_user
     @event_list = ListEvent.find(params[:id])
     @event_list.destroy
-    redirect_to bucketlist_path(@bucketlist)
+    # redirect_to bucketlist_path(@bucketlist)
 
   end
 end
