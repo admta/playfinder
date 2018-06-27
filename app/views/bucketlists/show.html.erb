@@ -2,7 +2,8 @@
   <div class="container container-card">
     <div class="cards cards-bucket">
       <% @events.each do |event| %>
-        <div class="bucket-card">
+
+        <div class="bucket-card" data-event-id="<%= event.id %>">
           <%= link_to "", event_path(event), class: "card-link" %>
           <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
           <div class="info">
@@ -17,7 +18,7 @@
             <div class="desc-likes">
               <p class="desc"><%= event.event.description %></p>
               <ul class="list-inline">
-                <li><%= link_to list_event_path(event), class: "bucket-link", method: :delete do %>
+                <li><%= link_to list_event_path(event), class: "bucket-link", method: :delete, remote: true do %>
                     <i class="fa fa-trash"></i>
                     <% end %>
                 </li>

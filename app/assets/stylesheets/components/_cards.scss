@@ -1,14 +1,19 @@
-.margin-top{
-  margin-top: 105px;
-}
-.card.margin-top {
-  height: 400px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5%;
-}
-.description h1, .description p{
+
+
+//
+//.card.margin-top {
+//  height: 400px;
+//  display: flex;
+//  justify-content: center;
+//  align-items: center;
+//  border-radius: 5%;
+//  margin-top: 105px;
+//}
+
+
+
+
+.info-title {
   text-align: center;
 }
 
@@ -196,12 +201,20 @@
   }
 }
 
+.title-team {
+  border-radius: 4px;
+}
+.title-home{
+  border-radius: 4px;
+}
+
 .title-home span {
     font-family: 'Shadows Into Light', cursive;
     background-color: #FFEE93;
     padding: 5px 10px;
     font-size: 32px;
     font-weight: bolder;
+    border-radius: 4px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
