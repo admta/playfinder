@@ -11,7 +11,6 @@ class Event < ApplicationRecord
   scope :events, -> { where("min_age = 0 AND max_age < 150" ) }
   scope :datepick, -> (datepick) { where("start_date <= '#{datepick}' AND end_date >= '#{datepick}'") }
 
-
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 

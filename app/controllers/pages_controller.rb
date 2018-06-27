@@ -63,22 +63,6 @@ class PagesController < ApplicationController
 
   end
 end
-
-
-
-    # @markers = @places.where.not(latitude: nil, longitude: nil).map do |place|
-    #   {
-    #     lat: place.latitude,
-    #     lng: place.longitude,
-    #     # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place })
-    #   }
-    # end
-
-    #  @markers = @events.where.not(latitude: nil, longitude: nil).each do |event|
-    #   @markers << { lat: event.latitude, lng: event.longitude }
-    # end
-  # end
-
   # def filter
   # @events = Event.where(nil) # creates an anonymous scope
   #  @events = @events.title(params[:title]) if params[:title].present?

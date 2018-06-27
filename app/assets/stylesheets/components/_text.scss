@@ -1,5 +1,6 @@
 
 .title-team span {
+  border-radius: 4px;
   font-family: 'Shadows Into Light', cursive;
   background-color: #BF4342;
   padding: 5px 10px;
@@ -20,8 +21,11 @@
 
 .team-name {
   span {
+    border-radius: 4px;
     padding: 5px 10px;
     background-color: #BF4342;
     color: white;
+    font-weight: bolder;
+    font-family: 'Roboto', sans-serif;
   }
 }
