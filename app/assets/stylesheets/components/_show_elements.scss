@@ -184,7 +184,7 @@
 }
 
 .bucket-image img {
-  width: 20px;
+  width: 18px;
 }
 
 
@@ -200,4 +200,10 @@
   p {
     margin-top: 20px;
   }
+}
+
+
+.bucket-event-page {
+  display: flex;
+  justify-content: space-between;
 }
