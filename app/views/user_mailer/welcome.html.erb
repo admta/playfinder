@@ -1,0 +1,22 @@
+<!-- <h1>User#welcome</h1>
+
+<p>
+  <%= @greeting %>, find me in app/views/user_mailer/welcome.html.erb
+</p> -->
+
+<style>
+  p{
+    font-family:'Shadows Into Light', cursive;
+  }
+  h1,h3{
+    font-weight: lighter;
+  }
+</style>
+
+<h1>Welcome <%= @user.first_name %>,</h1>
+
+<h3>Thank you for using PlayFinder.</h3>
+<%= link_to "Click here to confirm your new account.",root_url %>
+<h3>Enjoy!</h3>
+
+<p>PlayFinder Team</p>
