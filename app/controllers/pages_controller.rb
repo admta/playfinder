@@ -15,57 +15,69 @@ class PagesController < ApplicationController
 
 
   def search
-    query = params[:query] || ""
-    if params[:search] && category = params[:search][:category]
-      query << "& (#{category.join(" OR ")})"
-    end
+    @query = params[:query] || ""
 
-
-    if !query.empty?
-      @places = Place.full_search(query)
-      @events = Event.full_search(query)
+    if !@query.empty?
+      @places = Place.full_search(@query)
+      @events = Event.full_search(@query)
     else
       @places = Place.all
       @events = Event.all
     end
 
-    if params[:start_date] && !params[:start_date].empty?
-      @events = @events.start_date(params[:start_date])
-      # @events = Event.full_search(params[:query])
+    @datepick = params[:datepick]
+    if @datepick && !params[:datepick].empty?
+      @events = @events.datepick(Date.parse(@datepick))
     end
 
-    if params[:age_0_2] && !params[:age_0_2].empty?
+    @event = (@event = params[:events]) && !@event.empty?
+    if @event
+      @places = Place.none
+    end
+
+    @playground = params[:playground]
+    if @playground == "true"
+      @places = @places.category("playground")
+      @events = Event.none
+    end
+
+    @age_0_2 = (@age_0_2 = params[:age_0_2]) && !@age_0_2.empty?
+    if @age_0_2
       @events = @events.age_0_2
       @places = @places.age_0_2
       # @events = Event.full_search(params[:query])
     end
 
-    if params[:age_3_8] && !params[:age_3_8].empty?
-      @events = @events.age_3_8
-      @places = @places.age_3_8
+    @age_3_5 = (@age_3_5 = params[:age_3_5]) && !@age_3_5.empty?
+    if @age_3_5
+      @events = @events.age_3_5
+      @places = @places.age_3_5
       # @events = Event.full_search(params[:query])
     end
 
-    if params[:age_9_15] && !params[:age_9_15].empty?
-      @events = @events.age_9_15
-      @places = @places.age_9_15
-      # @events = Event.full_search(params[:query])
+    @all_ages = (@all_ages = params[:all_ages]) && !@all_ages.empty?
+    if @all_ages
+      @events = Event.all
+      @places = Place.all
     end
 
-
-
-    @markers = @places.where.not(latitude: nil, longitude: nil).map do |place|
-      {
-        lat: place.latitude,
-        lng: place.longitude,
-        # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place })
-      }
-    end
-
-     @markers = @events.where.not(latitude: nil, longitude: nil).each do |event|
-      @markers << { lat: event.latitude, lng: event.longitude }
-    end
   end
+end
+
+
+
+    # @markers = @places.where.not(latitude: nil, longitude: nil).map do |place|
+    #   {
+    #     lat: place.latitude,
+    #     lng: place.longitude,
+    #     # infoWindow: { content: render_to_string(partial: "../views/places/map_box.html.erb", locals: { place: place })
+    #   }
+    # end
+
+    #  @markers = @events.where.not(latitude: nil, longitude: nil).each do |event|
+    #   @markers << { lat: event.latitude, lng: event.longitude }
+    # end
+  # end
 
   # def filter
   # @events = Event.where(nil) # creates an anonymous scope
@@ -75,10 +87,10 @@ class PagesController < ApplicationController
 
 
 
-  private
+
 
 #   def filtering_params
 # params.slice(:title, :description, :start_date)
 #   end
 
-end
+# end
