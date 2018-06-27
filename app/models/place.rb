@@ -2,12 +2,11 @@ class Place < ApplicationRecord
   has_many :events
   has_many :list_places
   include PgSearch
-  scope :category, -> (category) { where(category: category) }
+  scope :category, -> (category) { where("category ILIKE ?", "%#{category}%") }
   scope :title, -> (title) { where("title like ?", "%#{title}%")}
   scope :age_0_2, -> { where("min_age = 0 AND max_age < 3" ) }
-  scope :age_3_8, -> { where("min_age = 3 AND max_age < 9" ) }
+  scope :age_3_5, -> { where("min_age = 3 AND max_age < 6" ) }
   scope :age_9_15, -> { where("min_age = 9 AND max_age < 16" ) }
-  # scope :playground, -> { where("description == playground" ) }
 
 
 
