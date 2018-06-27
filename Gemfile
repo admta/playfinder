@@ -23,6 +23,8 @@ gem 'cloudinary'
 gem 'carrierwave', '~> 1.2'
 
 gem 'jquery-rails'
+gem 'postmark-rails'
+gem 'social-share-button'
 
 
 group :development do
