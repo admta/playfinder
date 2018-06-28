@@ -1,67 +1,83 @@
+
 <div class='wrapper-card' id="inspiration-card">
   <div class="container container-card">
     <div class="cards cards-bucket">
-      <% @events.each do |event| %>
+      <% if @events.present? %>
+        <% @events.each do |event| %>
 
-        <div class="bucket-card" data-event-id="<%= event.id %>">
-          <%= link_to "", event_path(event), class: "card-link" %>
-          <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
-          <div class="info">
-            <div class="event-name-price">
-              <!-- showing only the first 5 words -->
-              <h3><span><%= event.event.title.split(" ").first(5).join(" ")  %></span></h3>
-            </div>
+          <div class="event-card" data-event-id="<%= event.id %>">
+            <%= link_to "", event_path(event), class: "card-link" %>
+            <div class="img-card" style="background-image: url('<%= event.event.photo %>');"></div>
+            <div class="info">
+              <div class="event-name-price">
+                <!-- showing only the first 5 words -->
+                <h3><span><%= event.event.title.split(" ").first(5).join(" ")  %></span></h3>
+              </div>
 
-            <div class="detail-info">
-              <p class="event-date"><%= event.event.start_date.to_formatted_s(:long_ordinal) %> AMSTERDAM</p>
-            </div>
-            <div class="desc-likes">
-              <p class="desc"><%= event.event.description %></p>
-              <ul class="list-inline">
-                <li><%= link_to list_event_path(event), class: "bucket-link", method: :delete, remote: true do %>
-                    <i class="fa fa-trash"></i>
+              <div class="detail-info">
+                <p class="event-date"><%= event.event.start_date.to_formatted_s(:long_ordinal) %> AMSTERDAM</p>
+              </div>
+              <div class="desc-likes">
+                <p class="desc"><%= event.event.description %></p>
+                <ul class="list-inline">
+                  <li><%= link_to list_event_path(event), class: "bucket-link", method: :delete, remote: true do %>
+                      <i class="fa fa-trash"></i>
                     <% end %>
-                </li>
-              </ul>
+                  </li>
+                </ul>
 
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
 
-      <% @places.each do |place| %>
-        <div class="bucket-card">
-          <%= link_to "", place_path(place.place), class: "card-link" %>
-          <div class="img-card" style="background-image: url('<%= place.place.photo %>');"></div>
-          <div class="info">
-            <div class="event-name-price">
-              <!-- showing only the first 5 words -->
-              <% if place.place.events.empty? %>
-                <h3><span><%= place.place.title.split(" ").first(5).join(" ") %></span> </h3>
-              <% else %>
-                <h3><span><%= place.place.events.first.title.split(" ").first(5).join(" ") %></span> </h3>
-              <% end %>
-            </div>
 
-            <div class="detail-info">
-              <p class="event-date"><%= place.place.address %></p>
-            </div>
-            <div class="desc-likes">
-              <p class="desc"><%= place.place.description %></p>
-              <ul class="list-inline">
-                <li><%= link_to list_place_path(place), class: "bucket-link", method: :delete do %>
-                    <i class="fa fa-trash"></i>
-                  <% end %></li>
-              </ul>
 
+      <% if @places.present? %>
+
+        <% @places.each do |place| %>
+          <div class="event-card">
+            <%= link_to "", place_path(place.place), class: "card-link" %>
+            <div class="img-card" style="background-image: url('<%= place.place.photo %>');"></div>
+            <div class="info">
+              <div class="event-name-price">
+                <!-- showing only the first 5 words -->
+                <% if place.place.events.empty? %>
+                  <h3><span><%= place.place.title.split(" ").first(5).join(" ") %></span> </h3>
+                <% else %>
+                  <h3><span><%= place.place.events.first.title.split(" ").first(5).join(" ") %></span> </h3>
+                <% end %>
+              </div>
+
+              <div class="detail-info">
+                <p class="event-date"><%= place.place.address %></p>
+              </div>
+              <div class="desc-likes">
+                <p class="desc"><%= place.place.description %></p>
+                <ul class="list-inline">
+                  <li><%= link_to list_place_path(place), class: "bucket-link", method: :delete do %>
+                      <i class="fa fa-trash"></i>
+                    <% end %></li>
+                </ul>
+
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
+
+      <% if @places.empty? && @events.empty? %>
+        <h1>You haven't stored any places or events in your bucketlist yet</h1>
+
+      <% end %>
+
+    </div>
+    <div class="link-show">
+      <p><%= link_to " < Back to Search", search_path, class: "btn-back-search" %></p>
+      <p><%= link_to "Home", root_path,  class: "btn-show" %></p>
     </div>
   </div>
 </div>
-<div class="text-center">
-  <%= link_to "Keep on searching", search_path , class: "btn-links" %>
-  <%= link_to "Home", root_path , class: "btn-links" %>
-</div>
+
+
