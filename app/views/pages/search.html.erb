@@ -42,7 +42,7 @@
     <div class="cards cards-bucket">
 
       <%  @places.each do |place| %>
-        <div class="bucket-card">
+        <div class="event-card">
           <%= link_to "", place_path(place), class: "card-link" %>
           <div class="img-card" style="background-image: url('<%= place.photo %>');"></div>
           <div class="info">
@@ -50,7 +50,7 @@
               <!-- showing only the first 5 words -->
 
               <% if place.events.empty? %>
-                  <h3><span><%= place.title.split(" ").first(5).join(" ") %> </h3>
+                <h3><span><%= place.title.split(" ").first(5).join(" ") %> </span></h3>
                 <% else %>
                 <h3><span><%= place.events.first.title.split(" ").first(5).join(" ") %></span> </h3>
               <% end %>
