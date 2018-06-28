@@ -4,11 +4,12 @@ class Event < ApplicationRecord
   include PgSearch
   # scope: :description, -> (description) { where description: description }
   # scope: :title, -> (date) { where("title like ?", "#{title}%")}
-  scope :age_0_2, -> { where("min_age = 0 AND max_age < 3" ) }
-  scope :age_3_5, -> { where("min_age = 3 AND max_age < 6" ) }
-  scope :all_ages, -> { where("min_age = 0 AND max_age < 150" ) }
-  scope :playground, -> { where("min_age = 0 AND max_age < 150" ) }
-  scope :events, -> { where("min_age = 0 AND max_age < 150" ) }
+  scope :age_0_2, -> { where("min_age >= 0 AND max_age < 3" ) }
+  scope :age_3_5, -> { where("min_age >= 3 AND max_age < 6" ) }
+  scope :age_0_5, -> { where("min_age >= 0 AND max_age < 6" ) }
+  scope :all_ages, -> { where("min_age >= 0 AND max_age < 150" ) }
+  scope :playground, -> { where("min_age >= 0 AND max_age < 150" ) }
+  scope :events, -> { where("min_age >= 0 AND max_age < 150" ) }
   scope :datepick, -> (datepick) { where("start_date <= '#{datepick}' AND end_date >= '#{datepick}'") }
 
   geocoded_by :address

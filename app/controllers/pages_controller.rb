@@ -41,19 +41,21 @@ class PagesController < ApplicationController
       @events = Event.none
     end
 
-    @age_0_2 = (@age_0_2 = params[:age_0_2]) && !@age_0_2.empty?
-    if @age_0_2
+    @age_0_2 = params[:age_0_2]
+    @age_3_5 = params[:age_3_5]
+    @age_0_5 = params[:age_0_5]
+    if @age_0_2 && @age_3_5 && !@age_0_2.empty? && @age_3_5.empty?
       @events = @events.age_0_2
       @places = @places.age_0_2
       # @events = Event.full_search(params[:query])
-    end
-
-    @age_3_5 = (@age_3_5 = params[:age_3_5]) && !@age_3_5.empty?
-    if @age_3_5
+    elsif @age_0_2 && @age_3_5 && !@age_3_5.empty? && @age_0_2.empty?
       @events = @events.age_3_5
       @places = @places.age_3_5
-      # @events = Event.full_search(params[:query])
+    elsif @age_0_2 && @age_3_5 && !@age_3_5.empty? && !@age_0_2.empty?
+      @events = @events.age_0_5
+      @places = @places.age_0_5
     end
+
 
     @all_ages = (@all_ages = params[:all_ages]) && !@all_ages.empty?
     if @all_ages
