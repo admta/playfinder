@@ -1,0 +1,4 @@
+meta_product_name: "PlayFinder"
+meta_title: "PlayFinder - Find your kid's next adventures"
+meta_description: "PlayFinder helps you find events, venues and playgrounds in Amsterdam for your kids."
+meta_image: "banner.jpg"                       # should exist in `app/assets/images/`
