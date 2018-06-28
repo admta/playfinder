@@ -111,7 +111,7 @@ places =
         },
 
         {
-            category: 'Playground with Cafés',
+            category: 'Playground',
             title: 'Robbeburg International Playgroup',
             address: 'Jekerstraat 84, 1078 MG Amsterdam',
             description: 'This is non-profit playgroup run by volunteers. It is a friendly place to escape to with your little one and meet up with other international parents.',
@@ -123,7 +123,7 @@ places =
 
         },
         {
-            category: 'Playground with Cafés',
+            category: 'Playground',
             title: ' Octopus International Playgroup',
             address: 'Arent Janszoon Ernststraat 132, 1082 LP Amsterdam',
             description: 'Just opposite the Gelderlandplein shopping centre in Buitenvelder, this is again a parent-run playgroup for international parents. The beautiful Amstel Park is a walking distance from the playgroup if you choose to plan a whole day out.',
