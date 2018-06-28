@@ -31,12 +31,16 @@
 
       <% @places.each do |place| %>
         <div class="bucket-card">
-          <%= link_to "", place_path(place), class: "card-link" %>
+          <%= link_to "", place_path(place.place), class: "card-link" %>
           <div class="img-card" style="background-image: url('<%= place.place.photo %>');"></div>
           <div class="info">
             <div class="event-name-price">
               <!-- showing only the first 5 words -->
-              <h3><span><%= place.place.title.split(" ").first(5).join(" ")  %></span></h3>
+              <% if place.place.events.empty? %>
+                <h3><span><%= place.place.title.split(" ").first(5).join(" ") %></span> </h3>
+              <% else %>
+                <h3><span><%= place.place.events.first.title.split(" ").first(5).join(" ") %></span> </h3>
+              <% end %>
             </div>
 
             <div class="detail-info">
