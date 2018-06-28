@@ -9,8 +9,14 @@ form#search_form .search-main {
     font-family: 'Shadows Into Light', cursive;
 }
 
-.btn-info{
+.glyphicon {
   background-color: #113a5d;
+  border-color: #113a5d;
+  height: 38px;
+  &:hover {
+    background-color: #BF4342;
+    border-color: #BF4342;
+  }
 }
 
 a{
@@ -23,6 +29,7 @@ a{
 }
 
 #search_form .search-filters {
+  border-radius: 3px;
   background-color: white;
   width: 100%;
   padding-top: 10px;
@@ -83,5 +90,10 @@ a{
     }
   }
 
+}
+
+.form-control {
+  padding: 18px;
+  border-radius: 3px;
 }
 
