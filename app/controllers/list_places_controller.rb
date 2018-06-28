@@ -10,7 +10,7 @@ class ListPlacesController < ApplicationController
     @place = Place.find(params[:list_place][:list_place].to_i)
 
     @place_list = ListPlace.create(bucket_list: @bucketlist, place: @place)
-    redirect_to bucketlist_path(@bucketlist)
+    # redirect_to bucketlist_path(@bucketlist)
   end
 
   def destroy

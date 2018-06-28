@@ -1,0 +1,13 @@
+console.log("HI");
+
+var bucketLinks = document.querySelectorAll(".bucket-link");
+
+bucketLinks.forEach(function(element){
+    console.log("It works!", element);
+    element.addEventListener('ajax:success', function(event) {
+        event.target.innerHTML = "<i class='fa fa-check-circle'></i>";
+    });
+    element.addEventListener('ajax:before', function(event) {
+        event.target.innerHTML = "<i class='fa fa-check-circle'></i>";
+    });
+});
