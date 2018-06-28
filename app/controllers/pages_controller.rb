@@ -22,7 +22,7 @@ class PagesController < ApplicationController
       @events = Event.full_search(@query)
     else
       @places = Place.all
-      @events = Event.all
+      @events = Event.all.limit(8)
     end
 
     @datepick = params[:datepick]
@@ -61,6 +61,17 @@ class PagesController < ApplicationController
       @places = Place.all
     end
 
+
+  if user_signed_in?
+    @selected_events = []
+    @selected_places = []
+    current_user.bucket_list.list_events.each do |list_event|
+    @selected_events << list_event.event
+  end
+    current_user.bucket_list.list_places.each do |list_place|
+    @selected_places << list_place.place
+  end
+  end
   end
 end
   # def filter

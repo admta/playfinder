@@ -42,15 +42,15 @@
 
               <div class="bucket-event-page">
 
-                  <%= link_to  list_events_path(list_event: {list_event: @event.id}), class: "bucket-image bucket-link", method: :post, remote: true do %>
+                  <%= link_to  list_events_path(list_event: {list_event: @event.id}), class: "btn-crud bucket-image bucket-link", method: :post, remote: true do %>
                     <%= image_tag("bucket.png") %>
                   <% end %>
 
                   <%= social_share_button_tag(@event.title, :allow_sites => %w(twitter facebook google_plus tumblr pinterest)) %>
               </div>
                 <div class="link-show">
-               <p><%= link_to "To the Website", @event.link, target: "_blank", class: "btn-show" %></p>
-                  <p><%= link_to "Back to Search", search_path, class: "btn-show" %></p>
+                  <p><%= link_to "Back to Search", search_path, class: "btn-back-search" %></p>
+                  <p><%= link_to "To the Website", @event.link, target: "_blank", class: "btn-show" %></p>
                 </div>
               <div class="share-container">
                 <div class="share-twitter">
