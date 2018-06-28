@@ -6,6 +6,7 @@
 form#search_form .search-main {
     display: flex;
     margin-top: 100px;
+    font-family: 'Shadows Into Light', cursive;
 }
 
 .btn-info{
@@ -31,14 +32,17 @@ a{
 
   margin-top: 10px;
   border: 1px solid lightgray;
+  font-family: 'Shadows Into Light', cursive;
 
   input[type="checkbox"] {
     display: none;
+
   }
 
   input[type="checkbox"]:checked + label {
-    background-color: hotpink;
-    color: white;
+    background-color: #113a5d;
+    color: #c4ffdd;
+    font-family: 'Shadows Into Light', cursive;
   }
 
   display: block;
