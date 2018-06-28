@@ -56,7 +56,7 @@ places =
             address: 'Tweede Weteringplantsoen 10-X, 1017 ZD Amsterdam',
             description: 'The oldest playground in the Netherlands at the Weteringsplantsoen in the heart of Amsterdam. A place where children meet and can play carefree. The playground has the  mission to be a nice playground for children between 2 and 12 and a nice place to stay for those children and their parents. You have access to toilet during the week, and the playground is open mostly everyday.',
             indoor: false,
-            min_age: ,0
+            min_age: 0,
             max_age: 10,
             link:  "https://www.ujklaren.nl/",
             photo: 'https://s3-media4.fl.yelpcdn.com/bphoto/qeYGN5DqP3wkbdTCgmKMkA/o.jpg'
