@@ -1,3 +1,10 @@
+<% content_for :meta_title, "#{@event.title} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @event.description %>
+
+
+
+
+
 <div class="container">
 <div class="show-wrapper">
   <div class="row row-adjustment">
@@ -35,7 +42,7 @@
 
               <div class="bucket-event-page">
 
-                  <%= link_to  list_events_path(list_event: {list_event: @event.id}), class: "bucket-image", method: :post, remote: true do %>
+                  <%= link_to  list_events_path(list_event: {list_event: @event.id}), class: "bucket-image bucket-link", method: :post, remote: true do %>
                     <%= image_tag("bucket.png") %>
                   <% end %>
 

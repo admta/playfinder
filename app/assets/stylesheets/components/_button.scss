@@ -70,22 +70,73 @@
 
 
 .btn-show {
+  border-radius: 5px;
   font-family: 'Roboto', sans-serif;
   color: white;
-  border: 1px solid $red;
+  border: 1px solid #8C1C13;
   padding: 10px 15px;
   font-weight: lighter;
   transition: background-color 0.5s ease 0s;
-  background-color: $red;
+  background-color: #8C1C13;
   font-weight: bold;
 }
 .btn-show:hover {
-  background-color: #8C1C13;
+  background-color: $red;
   opacity: 1;
   text-decoration: none;
   color: white;
-  border: 1px solid #8C1C13;
+  border: 1px solid $red;
 
 }
 
+.btn-back-search {
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  border: 1px solid #113A5D;
+  padding: 10px 15px;
+  font-weight: lighter;
+  transition: background-color 0.5s ease 0s;
+  background-color: #113A5D;
+  font-weight: bold;
+}
+.btn-back-search:hover {
+  background-color: #5B85AA;
+  opacity: 1;
+  text-decoration: none;
+  color: white;
+  border: 1px solid #5B85AA;
 
+}
+
+.btn-crud {
+  padding: 12.5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  transition: background-color 0.3s ease;
+
+  &:after {
+    content: "Put in your bucket";
+    text-decoration: none;
+    position: absolute;
+    background-color: #808080eb;
+    padding: 10px;
+    width: 300%;
+    border-radius: 18px;
+    color: #fff;
+    right: -330%;
+    top: -140%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  &:hover {
+    background-color: blue;
+    &:after {
+      opacity: 1;
+    }
+  }
+}
