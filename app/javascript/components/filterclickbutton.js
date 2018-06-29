@@ -12,6 +12,13 @@ function filterClickButton() {
     $("#age_0_2,#age_3_5").prop('checked', false);
   });
 
+  $('#playground').on('change',function() {
+    $("#events").prop('checked', false);
+  });
+  $('#events').on('change',function() {
+    $("#playground").prop('checked', false);
+  });
+
   // Auto submit
   var $search_form = $("#search_form");
   $search_form.find("input[type=checkbox],#datepick").on('change', function(){

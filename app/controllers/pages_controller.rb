@@ -16,13 +16,12 @@ class PagesController < ApplicationController
 
   def search
     @query = params[:query] || ""
+    @places = Place.all
+    @events = Event.all.limit(8)
 
     if !@query.empty?
       @places = Place.full_search(@query)
       @events = Event.full_search(@query)
-    else
-      @places = Place.all
-      @events = Event.all.limit(8)
     end
 
     @datepick = params[:datepick]
@@ -45,14 +44,11 @@ class PagesController < ApplicationController
     @age_3_5 = params[:age_3_5]
     @age_0_5 = params[:age_0_5]
     if @age_0_2 && @age_3_5 && !@age_0_2.empty? && @age_3_5.empty?
-      @events = @events.age_0_2
       @places = @places.age_0_2
       # @events = Event.full_search(params[:query])
     elsif @age_0_2 && @age_3_5 && !@age_3_5.empty? && @age_0_2.empty?
-      @events = @events.age_3_5
       @places = @places.age_3_5
     elsif @age_0_2 && @age_3_5 && !@age_3_5.empty? && !@age_0_2.empty?
-      @events = @events.age_0_5
       @places = @places.age_0_5
     end
 
@@ -60,19 +56,18 @@ class PagesController < ApplicationController
     @all_ages = (@all_ages = params[:all_ages]) && !@all_ages.empty?
     if @all_ages
       @events = Event.all
-      @places = Place.all
     end
 
 
-  if user_signed_in?
-    @selected_events = []
-    @selected_places = []
-    current_user.bucket_list.list_events.each do |list_event|
-    @selected_events << list_event.event
-  end
-    current_user.bucket_list.list_places.each do |list_place|
-    @selected_places << list_place.place
-  end
+    if user_signed_in?
+      @selected_events = []
+      @selected_places = []
+      current_user.bucket_list.list_events.each do |list_event|
+      @selected_events << list_event.event
+    end
+      current_user.bucket_list.list_places.each do |list_place|
+      @selected_places << list_place.place
+    end
   end
   end
 end
